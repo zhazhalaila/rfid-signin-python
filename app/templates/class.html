@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Collapsible sidebar using Bootstrap 4</title>
+
+    <!-- Bootstrap CSS CDN -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <!-- Our Custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/profile.css') }}">
+
+    <!-- Font Awesome JS -->
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="wrapper">
+        <!-- Sidebar  -->
+        <nav id="sidebar">
+            <div class="sidebar-header">
+                <h4>最近一次登录时间为：{{ class_.last_seen }}</h4>
+            </div>
+
+            <ul class="list-unstyled components">
+                <img src="{{ class_.avastar(200) }}" class="mx-auto d-block" alt="" width="200" height="200">
+                
+            <ul class="list-unstyled CTAs text-center">
+                <li>
+                    <button type="button" class="btn btn-primary btn-lg center-block">{{ class_.class_name }}</button>
+                </li>
+                <li>
+                    <button type="button" class="btn btn-info btn-lg center-block">{{ class_.class_token }}</button>
+                </li>
+				<li>
+                    <button type="button" class="btn btn-warning btn-lg center-block">{{ class_.class_teacher }}</button>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Page Content  -->
+        <div id="content">
+
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="container-fluid">
+
+                    <button type="button" id="sidebarCollapse" class="btn btn-info">
+                        <i class="fas fa-align-left"></i>
+                        <span>课程信息</span>
+                    </button>
+                    <a href="{{ url_for('index') }}" id="sidebarCollapse" class="btn btn-primary">
+                        <i class="fas fa-align-left"></i>
+                        <span>返回首页</span>
+                    </a>
+					<h5> 课堂成员 </h5>
+                </div>
+            </nav>
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <button type="button" class="btn btn-secondary">{{ currentTime }}</button>
+                <a href="{{ url_for('insert_student', class_name=current_user.class_name) }}" class="btn btn-info">添加新成员</a>
+            </nav>
+		<table class="table">
+		<thead>
+		<tr>
+			<th scope="col">学号</th>
+			<th scope="col">姓名</th>
+			<th scope="col">签到状态</th>
+		</tr>
+		</thead>
+		<tbody>
+            {% for student, active in items %}
+                <tr>
+                    <th scope="row">{{ student.student_number }}</th>
+                    <td>{{ student.student_name }}</td>
+                    {% if active %}
+                        <td><button type="button" class="btn btn-success">已到</button></td>
+                    {% else %}
+                        <td><button type="button" class="btn btn-danger">未到</button></td>
+                    {% endif %}
+                </tr>
+	        {% endfor %}
+		</tbody>
+	</table>
+
+        </div>
+    </div>
+
+    <!-- jQuery CDN - Slim version (=without AJAX) -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <!-- Popper.JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#sidebarCollapse').on('click', function () {
+                $('#sidebar').toggleClass('active');
+            });
+        });
+    </script>
+</body>
+
+</html>

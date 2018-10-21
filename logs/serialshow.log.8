@@ -1,0 +1,117 @@
+2018-10-18 22:04:43,818 ERROR: Exception on /favicon.ico [GET] [in c:\users\q\appdata\local\programs\python\python36-32\lib\site-packages\flask\app.py:1761]
+Traceback (most recent call last):
+  File "c:\users\q\appdata\local\programs\python\python36-32\lib\site-packages\flask\app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\users\q\appdata\local\programs\python\python36-32\lib\site-packages\flask\app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\users\q\appdata\local\programs\python\python36-32\lib\site-packages\flask\app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "c:\users\q\appdata\local\programs\python\python36-32\lib\site-packages\flask\_compat.py", line 35, in reraise
+    raise value
+  File "c:\users\q\appdata\local\programs\python\python36-32\lib\site-packages\flask\app.py", line 1811, in full_dispatch_request
+    rv = self.preprocess_request()
+  File "c:\users\q\appdata\local\programs\python\python36-32\lib\site-packages\flask\app.py", line 2087, in preprocess_request
+    rv = func()
+  File "D:\serialshow\app\routes.py", line 13, in before_request
+    for user in current_user:
+  File "c:\users\q\appdata\local\programs\python\python36-32\lib\site-packages\werkzeug\local.py", line 378, in <lambda>
+    __iter__ = lambda x: iter(x._get_current_object())
+TypeError: 'Class' object is not iterable
+2018-10-18 22:16:10,057 INFO: Serialshow startup [in D:\serialshow\app\__init__.py:28]
+2018-10-18 22:16:38,073 ERROR: Exception on /test/00 1A 2B 3C/dwa [GET] [in c:\users\q\appdata\local\programs\python\python36-32\lib\site-packages\flask\app.py:1761]
+Traceback (most recent call last):
+  File "c:\users\q\appdata\local\programs\python\python36-32\lib\site-packages\flask\app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\users\q\appdata\local\programs\python\python36-32\lib\site-packages\flask\app.py", line 1816, in full_dispatch_request
+    return self.finalize_request(rv)
+  File "c:\users\q\appdata\local\programs\python\python36-32\lib\site-packages\flask\app.py", line 1831, in finalize_request
+    response = self.make_response(rv)
+  File "c:\users\q\appdata\local\programs\python\python36-32\lib\site-packages\flask\app.py", line 1957, in make_response
+    'The view function did not return a valid response. The'
+TypeError: The view function did not return a valid response. The function either returned None or ended without a return statement.
+2018-10-18 22:19:47,298 INFO: Serialshow startup [in D:\serialshow\app\__init__.py:28]
+2018-10-18 22:20:09,429 ERROR: Exception on /test/1/1 [GET] [in c:\users\q\appdata\local\programs\python\python36-32\lib\site-packages\flask\app.py:1761]
+Traceback (most recent call last):
+  File "c:\users\q\appdata\local\programs\python\python36-32\lib\site-packages\flask\app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\users\q\appdata\local\programs\python\python36-32\lib\site-packages\flask\app.py", line 1816, in full_dispatch_request
+    return self.finalize_request(rv)
+  File "c:\users\q\appdata\local\programs\python\python36-32\lib\site-packages\flask\app.py", line 1831, in finalize_request
+    response = self.make_response(rv)
+  File "c:\users\q\appdata\local\programs\python\python36-32\lib\site-packages\flask\app.py", line 1957, in make_response
+    'The view function did not return a valid response. The'
+TypeError: The view function did not return a valid response. The function either returned None or ended without a return statement.
+2018-10-19 08:54:14,102 INFO: Serialshow startup [in D:\serialshow\app\__init__.py:28]
+2018-10-19 08:54:22,030 ERROR: Exception on / [GET] [in c:\users\q\appdata\local\programs\python\python36-32\lib\site-packages\flask\app.py:1761]
+Traceback (most recent call last):
+  File "c:\users\q\appdata\local\programs\python\python36-32\lib\site-packages\flask\app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\users\q\appdata\local\programs\python\python36-32\lib\site-packages\flask\app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\users\q\appdata\local\programs\python\python36-32\lib\site-packages\flask\app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "c:\users\q\appdata\local\programs\python\python36-32\lib\site-packages\flask\_compat.py", line 35, in reraise
+    raise value
+  File "c:\users\q\appdata\local\programs\python\python36-32\lib\site-packages\flask\app.py", line 1811, in full_dispatch_request
+    rv = self.preprocess_request()
+  File "c:\users\q\appdata\local\programs\python\python36-32\lib\site-packages\flask\app.py", line 2087, in preprocess_request
+    rv = func()
+  File "D:\serialshow\app\routes.py", line 13, in before_request
+    users.append(current_user.class_token)
+NameError: name 'users' is not defined
+2018-10-19 08:54:22,129 ERROR: Exception on /static/css/404.css [GET] [in c:\users\q\appdata\local\programs\python\python36-32\lib\site-packages\flask\app.py:1761]
+Traceback (most recent call last):
+  File "c:\users\q\appdata\local\programs\python\python36-32\lib\site-packages\flask\app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\users\q\appdata\local\programs\python\python36-32\lib\site-packages\flask\app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\users\q\appdata\local\programs\python\python36-32\lib\site-packages\flask\app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "c:\users\q\appdata\local\programs\python\python36-32\lib\site-packages\flask\_compat.py", line 35, in reraise
+    raise value
+  File "c:\users\q\appdata\local\programs\python\python36-32\lib\site-packages\flask\app.py", line 1811, in full_dispatch_request
+    rv = self.preprocess_request()
+  File "c:\users\q\appdata\local\programs\python\python36-32\lib\site-packages\flask\app.py", line 2087, in preprocess_request
+    rv = func()
+  File "D:\serialshow\app\routes.py", line 13, in before_request
+    users.append(current_user.class_token)
+NameError: name 'users' is not defined
+2018-10-19 08:54:22,189 ERROR: Exception on /static/css/404.css [GET] [in c:\users\q\appdata\local\programs\python\python36-32\lib\site-packages\flask\app.py:1761]
+Traceback (most recent call last):
+  File "c:\users\q\appdata\local\programs\python\python36-32\lib\site-packages\flask\app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\users\q\appdata\local\programs\python\python36-32\lib\site-packages\flask\app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\users\q\appdata\local\programs\python\python36-32\lib\site-packages\flask\app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "c:\users\q\appdata\local\programs\python\python36-32\lib\site-packages\flask\_compat.py", line 35, in reraise
+    raise value
+  File "c:\users\q\appdata\local\programs\python\python36-32\lib\site-packages\flask\app.py", line 1811, in full_dispatch_request
+    rv = self.preprocess_request()
+  File "c:\users\q\appdata\local\programs\python\python36-32\lib\site-packages\flask\app.py", line 2087, in preprocess_request
+    rv = func()
+  File "D:\serialshow\app\routes.py", line 13, in before_request
+    users.append(current_user.class_token)
+NameError: name 'users' is not defined
+2018-10-19 08:54:22,526 ERROR: Exception on /favicon.ico [GET] [in c:\users\q\appdata\local\programs\python\python36-32\lib\site-packages\flask\app.py:1761]
+Traceback (most recent call last):
+  File "c:\users\q\appdata\local\programs\python\python36-32\lib\site-packages\flask\app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\users\q\appdata\local\programs\python\python36-32\lib\site-packages\flask\app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\users\q\appdata\local\programs\python\python36-32\lib\site-packages\flask\app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "c:\users\q\appdata\local\programs\python\python36-32\lib\site-packages\flask\_compat.py", line 35, in reraise
+    raise value
+  File "c:\users\q\appdata\local\programs\python\python36-32\lib\site-packages\flask\app.py", line 1811, in full_dispatch_request
+    rv = self.preprocess_request()
+  File "c:\users\q\appdata\local\programs\python\python36-32\lib\site-packages\flask\app.py", line 2087, in preprocess_request
+    rv = func()
+  File "D:\serialshow\app\routes.py", line 13, in before_request
+    users.append(current_user.class_token)
+NameError: name 'users' is not defined
+2018-10-19 08:54:44,287 INFO: Serialshow startup [in D:\serialshow\app\__init__.py:28]
+2018-10-19 08:55:52,100 INFO: Serialshow startup [in D:\serialshow\app\__init__.py:28]
+2018-10-19 08:59:29,337 INFO: Serialshow startup [in D:\serialshow\app\__init__.py:28]
+2018-10-19 08:59:43,165 INFO: Serialshow startup [in D:\serialshow\app\__init__.py:28]
+2018-10-19 09:03:03,165 INFO: Serialshow startup [in D:\serialshow\app\__init__.py:28]

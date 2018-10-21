@@ -1,0 +1,121 @@
+2018-10-18 14:18:32,114 ERROR: Exception on /insert/海量数据 [POST] [in c:\users\q\appdata\local\programs\python\python36-32\lib\site-packages\flask\app.py:1761]
+Traceback (most recent call last):
+  File "c:\users\q\appdata\local\programs\python\python36-32\lib\site-packages\sqlalchemy\orm\session.py", line 1772, in add
+    state = attributes.instance_state(instance)
+AttributeError: 'BaseQuery' object has no attribute '_sa_instance_state'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\users\q\appdata\local\programs\python\python36-32\lib\site-packages\flask\app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\users\q\appdata\local\programs\python\python36-32\lib\site-packages\flask\app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\users\q\appdata\local\programs\python\python36-32\lib\site-packages\flask\app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "c:\users\q\appdata\local\programs\python\python36-32\lib\site-packages\flask\_compat.py", line 35, in reraise
+    raise value
+  File "c:\users\q\appdata\local\programs\python\python36-32\lib\site-packages\flask\app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "c:\users\q\appdata\local\programs\python\python36-32\lib\site-packages\flask\app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "c:\users\q\appdata\local\programs\python\python36-32\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
+    return func(*args, **kwargs)
+  File "D:\serialshow\app\routes.py", line 75, in insert_student
+    db.session.add(student)
+  File "c:\users\q\appdata\local\programs\python\python36-32\lib\site-packages\sqlalchemy\orm\scoping.py", line 153, in do
+    return getattr(self.registry(), name)(*args, **kwargs)
+  File "c:\users\q\appdata\local\programs\python\python36-32\lib\site-packages\sqlalchemy\orm\session.py", line 1774, in add
+    raise exc.UnmappedInstanceError(instance)
+sqlalchemy.orm.exc.UnmappedInstanceError: Class 'flask_sqlalchemy.BaseQuery' is not mapped
+2018-10-18 14:18:53,988 INFO: Serialshow startup [in D:\serialshow\app\__init__.py:28]
+2018-10-18 14:19:08,279 ERROR: Exception on /insert/海量数据 [POST] [in c:\users\q\appdata\local\programs\python\python36-32\lib\site-packages\flask\app.py:1761]
+Traceback (most recent call last):
+  File "c:\users\q\appdata\local\programs\python\python36-32\lib\site-packages\flask\app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\users\q\appdata\local\programs\python\python36-32\lib\site-packages\flask\app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\users\q\appdata\local\programs\python\python36-32\lib\site-packages\flask\app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "c:\users\q\appdata\local\programs\python\python36-32\lib\site-packages\flask\_compat.py", line 35, in reraise
+    raise value
+  File "c:\users\q\appdata\local\programs\python\python36-32\lib\site-packages\flask\app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "c:\users\q\appdata\local\programs\python\python36-32\lib\site-packages\flask\app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "c:\users\q\appdata\local\programs\python\python36-32\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
+    return func(*args, **kwargs)
+  File "D:\serialshow\app\routes.py", line 74, in insert_student
+    class_.insert(student)
+  File "D:\serialshow\app\models.py", line 47, in insert
+    if not self.is_inserting(student):
+  File "D:\serialshow\app\models.py", line 56, in is_inserting
+    student_identifier.c.student_id == student.student_id).count() > 0
+AttributeError: 'BaseQuery' object has no attribute 'student_id'
+2018-10-18 14:19:58,050 INFO: Serialshow startup [in D:\serialshow\app\__init__.py:28]
+2018-10-18 15:18:35,532 INFO: Serialshow startup [in D:\serialshow\app\__init__.py:28]
+2018-10-18 15:18:40,643 INFO: Serialshow startup [in D:\serialshow\app\__init__.py:28]
+2018-10-18 15:18:54,238 INFO: Serialshow startup [in D:\serialshow\app\__init__.py:28]
+2018-10-18 15:21:00,265 INFO: Serialshow startup [in D:\serialshow\app\__init__.py:28]
+2018-10-18 15:23:29,271 INFO: Serialshow startup [in D:\serialshow\app\__init__.py:28]
+2018-10-18 15:27:11,093 INFO: Serialshow startup [in D:\serialshow\app\__init__.py:28]
+2018-10-18 16:08:25,599 INFO: Serialshow startup [in D:\serialshow\app\__init__.py:28]
+2018-10-18 16:08:35,772 INFO: Serialshow startup [in D:\serialshow\app\__init__.py:28]
+2018-10-18 22:04:34,789 INFO: Serialshow startup [in D:\serialshow\app\__init__.py:28]
+2018-10-18 22:04:43,396 ERROR: Exception on / [GET] [in c:\users\q\appdata\local\programs\python\python36-32\lib\site-packages\flask\app.py:1761]
+Traceback (most recent call last):
+  File "c:\users\q\appdata\local\programs\python\python36-32\lib\site-packages\flask\app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\users\q\appdata\local\programs\python\python36-32\lib\site-packages\flask\app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\users\q\appdata\local\programs\python\python36-32\lib\site-packages\flask\app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "c:\users\q\appdata\local\programs\python\python36-32\lib\site-packages\flask\_compat.py", line 35, in reraise
+    raise value
+  File "c:\users\q\appdata\local\programs\python\python36-32\lib\site-packages\flask\app.py", line 1811, in full_dispatch_request
+    rv = self.preprocess_request()
+  File "c:\users\q\appdata\local\programs\python\python36-32\lib\site-packages\flask\app.py", line 2087, in preprocess_request
+    rv = func()
+  File "D:\serialshow\app\routes.py", line 13, in before_request
+    for user in current_user:
+  File "c:\users\q\appdata\local\programs\python\python36-32\lib\site-packages\werkzeug\local.py", line 378, in <lambda>
+    __iter__ = lambda x: iter(x._get_current_object())
+TypeError: 'Class' object is not iterable
+2018-10-18 22:04:43,625 ERROR: Exception on /static/css/404.css [GET] [in c:\users\q\appdata\local\programs\python\python36-32\lib\site-packages\flask\app.py:1761]
+Traceback (most recent call last):
+  File "c:\users\q\appdata\local\programs\python\python36-32\lib\site-packages\flask\app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\users\q\appdata\local\programs\python\python36-32\lib\site-packages\flask\app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\users\q\appdata\local\programs\python\python36-32\lib\site-packages\flask\app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "c:\users\q\appdata\local\programs\python\python36-32\lib\site-packages\flask\_compat.py", line 35, in reraise
+    raise value
+  File "c:\users\q\appdata\local\programs\python\python36-32\lib\site-packages\flask\app.py", line 1811, in full_dispatch_request
+    rv = self.preprocess_request()
+  File "c:\users\q\appdata\local\programs\python\python36-32\lib\site-packages\flask\app.py", line 2087, in preprocess_request
+    rv = func()
+  File "D:\serialshow\app\routes.py", line 13, in before_request
+    for user in current_user:
+  File "c:\users\q\appdata\local\programs\python\python36-32\lib\site-packages\werkzeug\local.py", line 378, in <lambda>
+    __iter__ = lambda x: iter(x._get_current_object())
+TypeError: 'Class' object is not iterable
+2018-10-18 22:04:43,680 ERROR: Exception on /static/css/404.css [GET] [in c:\users\q\appdata\local\programs\python\python36-32\lib\site-packages\flask\app.py:1761]
+Traceback (most recent call last):
+  File "c:\users\q\appdata\local\programs\python\python36-32\lib\site-packages\flask\app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\users\q\appdata\local\programs\python\python36-32\lib\site-packages\flask\app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\users\q\appdata\local\programs\python\python36-32\lib\site-packages\flask\app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "c:\users\q\appdata\local\programs\python\python36-32\lib\site-packages\flask\_compat.py", line 35, in reraise
+    raise value
+  File "c:\users\q\appdata\local\programs\python\python36-32\lib\site-packages\flask\app.py", line 1811, in full_dispatch_request
+    rv = self.preprocess_request()
+  File "c:\users\q\appdata\local\programs\python\python36-32\lib\site-packages\flask\app.py", line 2087, in preprocess_request
+    rv = func()
+  File "D:\serialshow\app\routes.py", line 13, in before_request
+    for user in current_user:
+  File "c:\users\q\appdata\local\programs\python\python36-32\lib\site-packages\werkzeug\local.py", line 378, in <lambda>
+    __iter__ = lambda x: iter(x._get_current_object())
+TypeError: 'Class' object is not iterable

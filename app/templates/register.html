@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Login V19</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->  
+    <link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/register-main.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/register-util.css') }}">
+<!--===============================================================================================-->
+</head>
+<body>
+    
+    <div class="limiter">
+        <div class="container-login100">
+            <div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-50">
+                <form class="login100-form validate-form" method="post" novalidate>
+                    {{ form.hidden_tag() }}
+                    <span class="login100-form-title p-b-33">
+                        注册教室
+                    </span>
+
+                    <div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
+                        {{ form.className(placeholder='课程名称', class_="input100") }}
+                        <span class="focus-input100-1"></span>
+                        <span class="focus-input100-2"></span>
+                    </div>
+
+                    <div class="wrap-input100 rs1 validate-input" data-validate="Password is required">
+                        {{ form.classToken(placeholder='课程代码', class_="input100") }}
+                        <span class="focus-input100-1"></span>
+                        <span class="focus-input100-2"></span>
+                    </div>
+                    
+                    <div class="wrap-input100 rs1 validate-input" data-validate="Password is required">
+                        {{ form.classTeacher(placeholder='任课教师', class_="input100") }}
+                        <span class="focus-input100-1"></span>
+                        <span class="focus-input100-2"></span>
+                    </div>
+
+                    <div class="wrap-input100 rs1 validate-input" data-validate="Password is required">
+                        {{ form.classPassword(placeholder='课程密码', class_="input100", type='password') }}
+                        <span class="focus-input100-1"></span>
+                        <span class="focus-input100-2"></span>
+                    </div>
+
+                    <div class="wrap-input100 rs1 validate-input" data-validate="Password is required">
+                        {{ form.classRepeatPassword(placeholder='重复输入课程密码', class_="input100", type='password') }}
+                        <span class="focus-input100-1"></span>
+                        <span class="focus-input100-2"></span>
+                    </div>
+
+                    <div class="container-login100-form-btn m-t-20">
+                        <button class="login100-form-btn">
+                            注册
+                        </button>
+                    </div>
+
+                    <div class="text-center">
+                        <span class="txt1">
+                            已注册教室？
+                        </span>
+
+                        <a href="{{ url_for('login') }}" class="txt2 hov1">
+                            登录
+                        </a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+     crossorigin="anonymous"></script>
+</body>
+</html>

@@ -1,0 +1,112 @@
+2018-10-18 14:06:04,677 ERROR: Exception on /insert/海量数据 [POST] [in c:\users\q\appdata\local\programs\python\python36-32\lib\site-packages\flask\app.py:1761]
+Traceback (most recent call last):
+  File "c:\users\q\appdata\local\programs\python\python36-32\lib\site-packages\sqlalchemy\engine\base.py", line 1193, in _execute_context
+    context)
+  File "c:\users\q\appdata\local\programs\python\python36-32\lib\site-packages\sqlalchemy\engine\default.py", line 509, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.IntegrityError: UNIQUE constraint failed: students.student_name
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "c:\users\q\appdata\local\programs\python\python36-32\lib\site-packages\flask\app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\users\q\appdata\local\programs\python\python36-32\lib\site-packages\flask\app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\users\q\appdata\local\programs\python\python36-32\lib\site-packages\flask\app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "c:\users\q\appdata\local\programs\python\python36-32\lib\site-packages\flask\_compat.py", line 35, in reraise
+    raise value
+  File "c:\users\q\appdata\local\programs\python\python36-32\lib\site-packages\flask\app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "c:\users\q\appdata\local\programs\python\python36-32\lib\site-packages\flask\app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "c:\users\q\appdata\local\programs\python\python36-32\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
+    return func(*args, **kwargs)
+  File "D:\serialshow\app\routes.py", line 74, in insert_student
+    class_.insert(student)
+  File "D:\serialshow\app\models.py", line 47, in insert
+    if not self.is_inserting(student):
+  File "D:\serialshow\app\models.py", line 56, in is_inserting
+    student_identifier.c.student_id == student.student_id).count() > 0
+  File "c:\users\q\appdata\local\programs\python\python36-32\lib\site-packages\sqlalchemy\orm\query.py", line 3230, in count
+    return self.from_self(col).scalar()
+  File "c:\users\q\appdata\local\programs\python\python36-32\lib\site-packages\sqlalchemy\orm\query.py", line 2983, in scalar
+    ret = self.one()
+  File "c:\users\q\appdata\local\programs\python\python36-32\lib\site-packages\sqlalchemy\orm\query.py", line 2954, in one
+    ret = self.one_or_none()
+  File "c:\users\q\appdata\local\programs\python\python36-32\lib\site-packages\sqlalchemy\orm\query.py", line 2924, in one_or_none
+    ret = list(self)
+  File "c:\users\q\appdata\local\programs\python\python36-32\lib\site-packages\sqlalchemy\orm\query.py", line 2994, in __iter__
+    self.session._autoflush()
+  File "c:\users\q\appdata\local\programs\python\python36-32\lib\site-packages\sqlalchemy\orm\session.py", line 1444, in _autoflush
+    util.raise_from_cause(e)
+  File "c:\users\q\appdata\local\programs\python\python36-32\lib\site-packages\sqlalchemy\util\compat.py", line 265, in raise_from_cause
+    reraise(type(exception), exception, tb=exc_tb, cause=cause)
+  File "c:\users\q\appdata\local\programs\python\python36-32\lib\site-packages\sqlalchemy\util\compat.py", line 249, in reraise
+    raise value
+  File "c:\users\q\appdata\local\programs\python\python36-32\lib\site-packages\sqlalchemy\orm\session.py", line 1434, in _autoflush
+    self.flush()
+  File "c:\users\q\appdata\local\programs\python\python36-32\lib\site-packages\sqlalchemy\orm\session.py", line 2254, in flush
+    self._flush(objects)
+  File "c:\users\q\appdata\local\programs\python\python36-32\lib\site-packages\sqlalchemy\orm\session.py", line 2380, in _flush
+    transaction.rollback(_capture_exception=True)
+  File "c:\users\q\appdata\local\programs\python\python36-32\lib\site-packages\sqlalchemy\util\langhelpers.py", line 66, in __exit__
+    compat.reraise(exc_type, exc_value, exc_tb)
+  File "c:\users\q\appdata\local\programs\python\python36-32\lib\site-packages\sqlalchemy\util\compat.py", line 249, in reraise
+    raise value
+  File "c:\users\q\appdata\local\programs\python\python36-32\lib\site-packages\sqlalchemy\orm\session.py", line 2344, in _flush
+    flush_context.execute()
+  File "c:\users\q\appdata\local\programs\python\python36-32\lib\site-packages\sqlalchemy\orm\unitofwork.py", line 391, in execute
+    rec.execute(self)
+  File "c:\users\q\appdata\local\programs\python\python36-32\lib\site-packages\sqlalchemy\orm\unitofwork.py", line 556, in execute
+    uow
+  File "c:\users\q\appdata\local\programs\python\python36-32\lib\site-packages\sqlalchemy\orm\persistence.py", line 181, in save_obj
+    mapper, table, insert)
+  File "c:\users\q\appdata\local\programs\python\python36-32\lib\site-packages\sqlalchemy\orm\persistence.py", line 866, in _emit_insert_statements
+    execute(statement, params)
+  File "c:\users\q\appdata\local\programs\python\python36-32\lib\site-packages\sqlalchemy\engine\base.py", line 948, in execute
+    return meth(self, multiparams, params)
+  File "c:\users\q\appdata\local\programs\python\python36-32\lib\site-packages\sqlalchemy\sql\elements.py", line 269, in _execute_on_connection
+    return connection._execute_clauseelement(self, multiparams, params)
+  File "c:\users\q\appdata\local\programs\python\python36-32\lib\site-packages\sqlalchemy\engine\base.py", line 1060, in _execute_clauseelement
+    compiled_sql, distilled_params
+  File "c:\users\q\appdata\local\programs\python\python36-32\lib\site-packages\sqlalchemy\engine\base.py", line 1200, in _execute_context
+    context)
+  File "c:\users\q\appdata\local\programs\python\python36-32\lib\site-packages\sqlalchemy\engine\base.py", line 1413, in _handle_dbapi_exception
+    exc_info
+  File "c:\users\q\appdata\local\programs\python\python36-32\lib\site-packages\sqlalchemy\util\compat.py", line 265, in raise_from_cause
+    reraise(type(exception), exception, tb=exc_tb, cause=cause)
+  File "c:\users\q\appdata\local\programs\python\python36-32\lib\site-packages\sqlalchemy\util\compat.py", line 248, in reraise
+    raise value.with_traceback(tb)
+  File "c:\users\q\appdata\local\programs\python\python36-32\lib\site-packages\sqlalchemy\engine\base.py", line 1193, in _execute_context
+    context)
+  File "c:\users\q\appdata\local\programs\python\python36-32\lib\site-packages\sqlalchemy\engine\default.py", line 509, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.IntegrityError: (raised as a result of Query-invoked autoflush; consider using a session.no_autoflush block if this flush is occurring prematurely) (sqlite3.IntegrityError) UNIQUE constraint failed: students.student_name [SQL: 'INSERT INTO students (rfid_id, student_number, student_name, student_nickname) VALUES (?, ?, ?, ?)'] [parameters: ('00 1A 2C 3D', '010', '我是真的皮', '')] (Background on this error at: http://sqlalche.me/e/gkpj)
+2018-10-18 14:13:20,228 INFO: Serialshow startup [in D:\serialshow\app\__init__.py:28]
+2018-10-18 14:13:35,297 ERROR: Exception on /insert/海量数据 [POST] [in c:\users\q\appdata\local\programs\python\python36-32\lib\site-packages\flask\app.py:1761]
+Traceback (most recent call last):
+  File "c:\users\q\appdata\local\programs\python\python36-32\lib\site-packages\flask\app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\users\q\appdata\local\programs\python\python36-32\lib\site-packages\flask\app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\users\q\appdata\local\programs\python\python36-32\lib\site-packages\flask\app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "c:\users\q\appdata\local\programs\python\python36-32\lib\site-packages\flask\_compat.py", line 35, in reraise
+    raise value
+  File "c:\users\q\appdata\local\programs\python\python36-32\lib\site-packages\flask\app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "c:\users\q\appdata\local\programs\python\python36-32\lib\site-packages\flask\app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "c:\users\q\appdata\local\programs\python\python36-32\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
+    return func(*args, **kwargs)
+  File "D:\serialshow\app\routes.py", line 76, in insert_student
+    class_.insert(student)
+  File "D:\serialshow\app\models.py", line 47, in insert
+    if not self.is_inserting(student):
+  File "D:\serialshow\app\models.py", line 56, in is_inserting
+    student_identifier.c.student_id == student.student_id).count() > 0
+AttributeError: 'BaseQuery' object has no attribute 'student_id'
+2018-10-18 14:17:07,615 INFO: Serialshow startup [in D:\serialshow\app\__init__.py:28]
+2018-10-18 14:18:15,536 INFO: Serialshow startup [in D:\serialshow\app\__init__.py:28]

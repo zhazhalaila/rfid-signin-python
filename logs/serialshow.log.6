@@ -1,0 +1,114 @@
+2018-10-19 10:19:45,827 ERROR: Exception on / [GET] [in c:\users\q\appdata\local\programs\python\python36-32\lib\site-packages\flask\app.py:1761]
+Traceback (most recent call last):
+  File "c:\users\q\appdata\local\programs\python\python36-32\lib\site-packages\flask\app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\users\q\appdata\local\programs\python\python36-32\lib\site-packages\flask\app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\users\q\appdata\local\programs\python\python36-32\lib\site-packages\flask\app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "c:\users\q\appdata\local\programs\python\python36-32\lib\site-packages\flask\_compat.py", line 35, in reraise
+    raise value
+  File "c:\users\q\appdata\local\programs\python\python36-32\lib\site-packages\flask\app.py", line 1811, in full_dispatch_request
+    rv = self.preprocess_request()
+  File "c:\users\q\appdata\local\programs\python\python36-32\lib\site-packages\flask\app.py", line 2087, in preprocess_request
+    rv = func()
+  File "D:\serialshow\app\routes.py", line 14, in before_request
+    if current_user.is_authenticated:
+  File "c:\users\q\appdata\local\programs\python\python36-32\lib\site-packages\werkzeug\local.py", line 347, in __getattr__
+    return getattr(self._get_current_object(), name)
+  File "c:\users\q\appdata\local\programs\python\python36-32\lib\site-packages\werkzeug\local.py", line 306, in _get_current_object
+    return self.__local()
+  File "c:\users\q\appdata\local\programs\python\python36-32\lib\site-packages\flask_login\utils.py", line 26, in <lambda>
+    current_user = LocalProxy(lambda: _get_user())
+  File "c:\users\q\appdata\local\programs\python\python36-32\lib\site-packages\flask_login\utils.py", line 335, in _get_user
+    current_app.login_manager._load_user()
+  File "c:\users\q\appdata\local\programs\python\python36-32\lib\site-packages\flask_login\login_manager.py", line 359, in _load_user
+    return self.reload_user()
+  File "c:\users\q\appdata\local\programs\python\python36-32\lib\site-packages\flask_login\login_manager.py", line 321, in reload_user
+    user = self.user_callback(user_id)
+  File "D:\serialshow\app\models.py", line 73, in load_user
+    return Class.query.get(int(id))
+  File "c:\users\q\appdata\local\programs\python\python36-32\lib\site-packages\flask_sqlalchemy\__init__.py", line 512, in __get__
+    mapper = orm.class_mapper(type)
+  File "c:\users\q\appdata\local\programs\python\python36-32\lib\site-packages\sqlalchemy\orm\base.py", line 421, in class_mapper
+    mapper = _inspect_mapped_class(class_, configure=configure)
+  File "c:\users\q\appdata\local\programs\python\python36-32\lib\site-packages\sqlalchemy\orm\base.py", line 400, in _inspect_mapped_class
+    mapper._configure_all()
+  File "c:\users\q\appdata\local\programs\python\python36-32\lib\site-packages\sqlalchemy\orm\mapper.py", line 1276, in _configure_all
+    configure_mappers()
+  File "c:\users\q\appdata\local\programs\python\python36-32\lib\site-packages\sqlalchemy\orm\mapper.py", line 3033, in configure_mappers
+    mapper._post_configure_properties()
+  File "c:\users\q\appdata\local\programs\python\python36-32\lib\site-packages\sqlalchemy\orm\mapper.py", line 1832, in _post_configure_properties
+    prop.init()
+  File "c:\users\q\appdata\local\programs\python\python36-32\lib\site-packages\sqlalchemy\orm\interfaces.py", line 183, in init
+    self.do_init()
+  File "c:\users\q\appdata\local\programs\python\python36-32\lib\site-packages\sqlalchemy\orm\relationships.py", line 1659, in do_init
+    self._generate_backref()
+  File "c:\users\q\appdata\local\programs\python\python36-32\lib\site-packages\sqlalchemy\orm\relationships.py", line 1849, in _generate_backref
+    (backref_key, self, m))
+sqlalchemy.exc.ArgumentError: Error creating backref 'student' on relationship 'Student.actives': property of that name exists on mapper 'Mapper|Active|timetable'
+2018-10-19 10:22:06,509 INFO: Serialshow startup [in D:\serialshow\app\__init__.py:28]
+2018-10-19 10:56:22,603 INFO: Serialshow startup [in D:\serialshow\app\__init__.py:28]
+2018-10-19 10:56:30,356 INFO: Serialshow startup [in D:\serialshow\app\__init__.py:28]
+2018-10-19 19:12:48,425 INFO: Serialshow startup [in D:\serialshow\app\__init__.py:28]
+2018-10-19 19:13:13,333 INFO: Serialshow startup [in D:\serialshow\app\__init__.py:28]
+2018-10-19 19:13:22,380 INFO: Serialshow startup [in D:\serialshow\app\__init__.py:28]
+2018-10-19 19:15:44,820 INFO: Serialshow startup [in D:\serialshow\app\__init__.py:28]
+2018-10-19 19:15:51,603 INFO: Serialshow startup [in D:\serialshow\app\__init__.py:28]
+2018-10-19 19:18:04,086 INFO: Serialshow startup [in D:\serialshow\app\__init__.py:28]
+2018-10-19 19:19:09,807 INFO: Serialshow startup [in D:\serialshow\app\__init__.py:28]
+2018-10-19 19:20:02,961 INFO: Serialshow startup [in D:\serialshow\app\__init__.py:28]
+2018-10-19 19:20:15,159 INFO: Serialshow startup [in D:\serialshow\app\__init__.py:28]
+2018-10-19 19:20:21,305 INFO: Serialshow startup [in D:\serialshow\app\__init__.py:28]
+2018-10-19 19:20:29,888 INFO: Serialshow startup [in D:\serialshow\app\__init__.py:28]
+2018-10-19 19:30:03,651 INFO: Serialshow startup [in D:\serialshow\app\__init__.py:28]
+2018-10-19 19:34:27,008 INFO: Serialshow startup [in D:\serialshow\app\__init__.py:28]
+2018-10-19 19:36:49,144 INFO: Serialshow startup [in D:\serialshow\app\__init__.py:28]
+2018-10-19 19:54:11,545 INFO: Serialshow startup [in D:\serialshow\app\__init__.py:28]
+2018-10-19 19:54:50,618 INFO: Serialshow startup [in D:\serialshow\app\__init__.py:28]
+2018-10-20 16:55:24,154 INFO: Serialshow startup [in D:\serialshow\app\__init__.py:28]
+2018-10-20 16:55:33,493 INFO: Serialshow startup [in D:\serialshow\app\__init__.py:28]
+2018-10-20 16:55:39,041 INFO: Serialshow startup [in D:\serialshow\app\__init__.py:28]
+2018-10-20 17:26:12,772 INFO: Serialshow startup [in D:\serialshow\app\__init__.py:28]
+2018-10-20 17:27:09,401 INFO: Serialshow startup [in D:\serialshow\app\__init__.py:28]
+2018-10-20 17:28:19,538 INFO: Serialshow startup [in D:\serialshow\app\__init__.py:28]
+2018-10-20 17:28:23,658 ERROR: Exception on /class/数据库 [GET] [in c:\users\q\appdata\local\programs\python\python36-32\lib\site-packages\flask\app.py:1761]
+Traceback (most recent call last):
+  File "c:\users\q\appdata\local\programs\python\python36-32\lib\site-packages\flask\app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\users\q\appdata\local\programs\python\python36-32\lib\site-packages\flask\app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\users\q\appdata\local\programs\python\python36-32\lib\site-packages\flask\app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "c:\users\q\appdata\local\programs\python\python36-32\lib\site-packages\flask\_compat.py", line 35, in reraise
+    raise value
+  File "c:\users\q\appdata\local\programs\python\python36-32\lib\site-packages\flask\app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "c:\users\q\appdata\local\programs\python\python36-32\lib\site-packages\flask\app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "c:\users\q\appdata\local\programs\python\python36-32\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
+    return func(*args, **kwargs)
+  File "D:\serialshow\app\routes.py", line 67, in get_class
+    curr_log_info = Timetable.query.filter(time_class_id=class_id,
+NameError: name 'class_id' is not defined
+2018-10-20 17:28:41,012 INFO: Serialshow startup [in D:\serialshow\app\__init__.py:28]
+2018-10-20 17:28:43,052 ERROR: Exception on /class/数据库 [GET] [in c:\users\q\appdata\local\programs\python\python36-32\lib\site-packages\flask\app.py:1761]
+Traceback (most recent call last):
+  File "c:\users\q\appdata\local\programs\python\python36-32\lib\site-packages\flask\app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\users\q\appdata\local\programs\python\python36-32\lib\site-packages\flask\app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\users\q\appdata\local\programs\python\python36-32\lib\site-packages\flask\app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "c:\users\q\appdata\local\programs\python\python36-32\lib\site-packages\flask\_compat.py", line 35, in reraise
+    raise value
+  File "c:\users\q\appdata\local\programs\python\python36-32\lib\site-packages\flask\app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "c:\users\q\appdata\local\programs\python\python36-32\lib\site-packages\flask\app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "c:\users\q\appdata\local\programs\python\python36-32\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
+    return func(*args, **kwargs)
+  File "D:\serialshow\app\routes.py", line 69, in get_class
+    time_time = datetime.now() - timedelta(hours=2)
+NameError: name 'timedelta' is not defined
+2018-10-20 17:29:04,906 INFO: Serialshow startup [in D:\serialshow\app\__init__.py:28]
