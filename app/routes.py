@@ -9,6 +9,8 @@ from flask import request
 import redis
 
 r = redis.StrictRedis(host='localhost', port=6379, db=0)
+current_class = []
+no_duplicate = []
 
 @app.before_request
 def before_request():
@@ -20,9 +22,13 @@ def before_request():
 @app.route('/index')
 @login_required
 def index():
+	current_class.append(current_user.class_id)
+	no_duplicate = list(set(current_class))
+	print(no_duplicate)
+	for i in no_duplicate:
+		r.hset("simultaneously", i, i)
 	currentTime = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
 	r.set('curr_token', current_user.class_token)
-	print(current_user.class_token)
 	return render_template('index.html', currentTime=currentTime)
 	
 @app.route('/login', methods=['GET', 'POST'])
@@ -59,6 +65,14 @@ def register():
 @app.route('/class/<class_name>')
 @login_required
 def get_class(class_name):
+	classes = r.hgetall("simultaneously").values()
+	curr_time = datetime.now()
+	for class_ in classes:
+		curr_class = Class.query.filter_by(class_id=class_.decode('utf-8')).first_or_404()
+		last_seen = curr_class.last_seen
+		if curr_time - last_seen > timedelta(minutes=1):
+			r.hdel("simultaneously", class_)
+	print(r.hgetall("simultaneously").values())
 	class_ = Class.query.filter_by(class_name=class_name).first_or_404()
 	students = class_.get_student().all()
 	items = []
@@ -97,10 +111,9 @@ def insert_student(class_name):
 
 @app.route('/signin')
 def signin():
+	classes = r.hgetall("simultaneously").values()
 	token = request.args.get('token')
 	rfid_id = request.args.get('rfid_id')
-	print(token)
-	print(rfid_id)
 	curr_class = Class.query.filter_by(class_token=token).first_or_404()
 	students = curr_class.get_student().all()
 	for student in students:
@@ -115,6 +128,10 @@ def signin():
 			return student.student_name
 
 	return rfid_id
+
+@app.route('/online')
+def online():
+	return render_template('onlineclass.html')
 
 @app.route('/logout')
 def logout():

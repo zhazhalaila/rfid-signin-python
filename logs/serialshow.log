@@ -1,4 +1,12 @@
-2018-10-21 13:20:14,624 ERROR: Exception on / [GET] [in c:\users\q\appdata\local\programs\python\python36-32\lib\site-packages\flask\app.py:1761]
+2018-10-22 15:45:31,862 INFO: Serialshow startup [in D:\serialshow\app\__init__.py:28]
+2018-10-22 15:49:24,999 INFO: Serialshow startup [in D:\serialshow\app\__init__.py:28]
+2018-10-22 15:52:25,026 INFO: Serialshow startup [in D:\serialshow\app\__init__.py:28]
+2018-10-22 16:02:26,429 INFO: Serialshow startup [in D:\serialshow\app\__init__.py:28]
+2018-10-22 16:03:25,336 INFO: Serialshow startup [in D:\serialshow\app\__init__.py:28]
+2018-10-22 16:04:22,455 INFO: Serialshow startup [in D:\serialshow\app\__init__.py:28]
+2018-10-22 16:05:50,529 INFO: Serialshow startup [in D:\serialshow\app\__init__.py:28]
+2018-10-22 16:08:29,082 INFO: Serialshow startup [in D:\serialshow\app\__init__.py:28]
+2018-10-22 16:08:32,711 ERROR: Exception on /index [GET] [in c:\users\q\appdata\local\programs\python\python36-32\lib\site-packages\flask\app.py:1761]
 Traceback (most recent call last):
   File "c:\users\q\appdata\local\programs\python\python36-32\lib\site-packages\flask\app.py", line 2292, in wsgi_app
     response = self.full_dispatch_request()
@@ -12,13 +20,13 @@ Traceback (most recent call last):
     rv = self.dispatch_request()
   File "c:\users\q\appdata\local\programs\python\python36-32\lib\site-packages\flask\app.py", line 1799, in dispatch_request
     return self.view_functions[rule.endpoint](**req.view_args)
-  File "D:\serialshow\app\routes.py", line 25, in index
-    return render_template('index.html', currentTime=currentTime, curr_class=curr_class)
-NameError: name 'curr_class' is not defined
-2018-10-21 13:20:47,849 INFO: Serialshow startup [in D:\serialshow\app\__init__.py:28]
-2018-10-21 13:28:13,357 INFO: Serialshow startup [in D:\serialshow\app\__init__.py:28]
-2018-10-21 13:36:42,235 INFO: Serialshow startup [in D:\serialshow\app\__init__.py:28]
-2018-10-21 13:36:51,019 ERROR: Exception on /index [GET] [in c:\users\q\appdata\local\programs\python\python36-32\lib\site-packages\flask\app.py:1761]
+  File "c:\users\q\appdata\local\programs\python\python36-32\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
+    return func(*args, **kwargs)
+  File "D:\serialshow\app\routes.py", line 30, in index
+    r.hset("simultaneously")
+TypeError: hset() missing 2 required positional arguments: 'key' and 'value'
+2018-10-22 16:09:27,899 INFO: Serialshow startup [in D:\serialshow\app\__init__.py:28]
+2018-10-22 16:09:30,105 ERROR: Exception on /index [GET] [in c:\users\q\appdata\local\programs\python\python36-32\lib\site-packages\flask\app.py:1761]
 Traceback (most recent call last):
   File "c:\users\q\appdata\local\programs\python\python36-32\lib\site-packages\flask\app.py", line 2292, in wsgi_app
     response = self.full_dispatch_request()
@@ -32,13 +40,16 @@ Traceback (most recent call last):
     rv = self.dispatch_request()
   File "c:\users\q\appdata\local\programs\python\python36-32\lib\site-packages\flask\app.py", line 1799, in dispatch_request
     return self.view_functions[rule.endpoint](**req.view_args)
-  File "D:\serialshow\app\routes.py", line 23, in index
-    r.set('curr_token', current_user.class_token)
-  File "c:\users\q\appdata\local\programs\python\python36-32\lib\site-packages\werkzeug\local.py", line 347, in __getattr__
-    return getattr(self._get_current_object(), name)
-AttributeError: 'AnonymousUserMixin' object has no attribute 'class_token'
-2018-10-21 13:39:45,639 INFO: Serialshow startup [in D:\serialshow\app\__init__.py:28]
-2018-10-21 13:39:50,472 ERROR: Exception on / [GET] [in c:\users\q\appdata\local\programs\python\python36-32\lib\site-packages\flask\app.py:1761]
+  File "c:\users\q\appdata\local\programs\python\python36-32\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
+    return func(*args, **kwargs)
+  File "D:\serialshow\app\routes.py", line 29, in index
+    r.hset("simultaneously", i)
+TypeError: hset() missing 1 required positional argument: 'value'
+2018-10-22 16:11:22,661 INFO: Serialshow startup [in D:\serialshow\app\__init__.py:28]
+2018-10-22 16:14:30,562 INFO: Serialshow startup [in D:\serialshow\app\__init__.py:28]
+2018-10-22 16:26:38,690 INFO: Serialshow startup [in D:\serialshow\app\__init__.py:28]
+2018-10-22 16:27:17,345 INFO: Serialshow startup [in D:\serialshow\app\__init__.py:28]
+2018-10-22 16:27:23,079 ERROR: Exception on /class/Êý¾Ý¿â [GET] [in c:\users\q\appdata\local\programs\python\python36-32\lib\site-packages\flask\app.py:1761]
 Traceback (most recent call last):
   File "c:\users\q\appdata\local\programs\python\python36-32\lib\site-packages\flask\app.py", line 2292, in wsgi_app
     response = self.full_dispatch_request()
@@ -52,69 +63,13 @@ Traceback (most recent call last):
     rv = self.dispatch_request()
   File "c:\users\q\appdata\local\programs\python\python36-32\lib\site-packages\flask\app.py", line 1799, in dispatch_request
     return self.view_functions[rule.endpoint](**req.view_args)
-  File "D:\serialshow\app\routes.py", line 23, in index
-    r.set('curr_token', current_user.class_token)
-  File "c:\users\q\appdata\local\programs\python\python36-32\lib\site-packages\werkzeug\local.py", line 347, in __getattr__
-    return getattr(self._get_current_object(), name)
-AttributeError: 'AnonymousUserMixin' object has no attribute 'class_token'
-2018-10-21 13:41:43,454 INFO: Serialshow startup [in D:\serialshow\app\__init__.py:28]
-2018-10-21 13:41:45,465 ERROR: Exception on / [GET] [in c:\users\q\appdata\local\programs\python\python36-32\lib\site-packages\flask\app.py:1761]
-Traceback (most recent call last):
-  File "c:\users\q\appdata\local\programs\python\python36-32\lib\site-packages\flask\app.py", line 2292, in wsgi_app
-    response = self.full_dispatch_request()
-  File "c:\users\q\appdata\local\programs\python\python36-32\lib\site-packages\flask\app.py", line 1815, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "c:\users\q\appdata\local\programs\python\python36-32\lib\site-packages\flask\app.py", line 1718, in handle_user_exception
-    reraise(exc_type, exc_value, tb)
-  File "c:\users\q\appdata\local\programs\python\python36-32\lib\site-packages\flask\_compat.py", line 35, in reraise
-    raise value
-  File "c:\users\q\appdata\local\programs\python\python36-32\lib\site-packages\flask\app.py", line 1813, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "c:\users\q\appdata\local\programs\python\python36-32\lib\site-packages\flask\app.py", line 1799, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "D:\serialshow\app\routes.py", line 23, in index
-    r.set('curr_token', current_user.class_token)
-  File "c:\users\q\appdata\local\programs\python\python36-32\lib\site-packages\werkzeug\local.py", line 347, in __getattr__
-    return getattr(self._get_current_object(), name)
-AttributeError: 'AnonymousUserMixin' object has no attribute 'class_token'
-2018-10-21 13:42:16,833 INFO: Serialshow startup [in D:\serialshow\app\__init__.py:28]
-2018-10-21 13:43:19,948 INFO: Serialshow startup [in D:\serialshow\app\__init__.py:28]
-2018-10-21 13:43:21,654 ERROR: Exception on /index [GET] [in c:\users\q\appdata\local\programs\python\python36-32\lib\site-packages\flask\app.py:1761]
-Traceback (most recent call last):
-  File "c:\users\q\appdata\local\programs\python\python36-32\lib\site-packages\flask\app.py", line 2292, in wsgi_app
-    response = self.full_dispatch_request()
-  File "c:\users\q\appdata\local\programs\python\python36-32\lib\site-packages\flask\app.py", line 1815, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "c:\users\q\appdata\local\programs\python\python36-32\lib\site-packages\flask\app.py", line 1718, in handle_user_exception
-    reraise(exc_type, exc_value, tb)
-  File "c:\users\q\appdata\local\programs\python\python36-32\lib\site-packages\flask\_compat.py", line 35, in reraise
-    raise value
-  File "c:\users\q\appdata\local\programs\python\python36-32\lib\site-packages\flask\app.py", line 1813, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "c:\users\q\appdata\local\programs\python\python36-32\lib\site-packages\flask\app.py", line 1799, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "D:\serialshow\app\routes.py", line 23, in index
-    r.set('curr_token', current_user.class_token)
-  File "c:\users\q\appdata\local\programs\python\python36-32\lib\site-packages\werkzeug\local.py", line 347, in __getattr__
-    return getattr(self._get_current_object(), name)
-AttributeError: 'AnonymousUserMixin' object has no attribute 'class_token'
-2018-10-21 13:43:36,864 INFO: Serialshow startup [in D:\serialshow\app\__init__.py:28]
-2018-10-21 13:44:01,021 INFO: Serialshow startup [in D:\serialshow\app\__init__.py:28]
-2018-10-21 13:45:07,984 INFO: Serialshow startup [in D:\serialshow\app\__init__.py:28]
-2018-10-21 13:47:09,523 INFO: Serialshow startup [in D:\serialshow\app\__init__.py:28]
-2018-10-21 13:47:37,570 INFO: Serialshow startup [in D:\serialshow\app\__init__.py:28]
-2018-10-21 13:54:50,965 INFO: Serialshow startup [in D:\serialshow\app\__init__.py:28]
-2018-10-21 18:40:51,935 INFO: Serialshow startup [in D:\serialshow\app\__init__.py:28]
-2018-10-21 18:43:32,156 INFO: Serialshow startup [in D:\serialshow\app\__init__.py:28]
-2018-10-21 18:44:52,183 INFO: Serialshow startup [in D:\serialshow\app\__init__.py:28]
-2018-10-21 18:44:57,931 INFO: Serialshow startup [in D:\serialshow\app\__init__.py:28]
-2018-10-21 18:46:41,290 INFO: Serialshow startup [in D:\serialshow\app\__init__.py:28]
-2018-10-21 18:48:21,810 INFO: Serialshow startup [in D:\serialshow\app\__init__.py:28]
-2018-10-21 18:49:43,355 INFO: Serialshow startup [in D:\serialshow\app\__init__.py:28]
-2018-10-21 18:52:10,225 INFO: Serialshow startup [in D:\serialshow\app\__init__.py:28]
-2018-10-21 18:53:58,113 INFO: Serialshow startup [in D:\serialshow\app\__init__.py:28]
-2018-10-21 18:57:08,593 INFO: Serialshow startup [in D:\serialshow\app\__init__.py:28]
-2018-10-21 18:57:38,288 INFO: Serialshow startup [in D:\serialshow\app\__init__.py:28]
-2018-10-21 18:58:18,193 INFO: Serialshow startup [in D:\serialshow\app\__init__.py:28]
-2018-10-21 22:10:06,478 INFO: Serialshow startup [in D:\serialshow\app\__init__.py:28]
-2018-10-21 22:11:57,734 INFO: Serialshow startup [in D:\serialshow\app\__init__.py:28]
+  File "c:\users\q\appdata\local\programs\python\python36-32\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
+    return func(*args, **kwargs)
+  File "D:\serialshow\app\routes.py", line 72, in get_class
+    last_seen = curr_class.last_seen
+AttributeError: 'NoneType' object has no attribute 'last_seen'
+2018-10-22 16:28:14,755 INFO: Serialshow startup [in D:\serialshow\app\__init__.py:28]
+2018-10-22 16:29:25,305 INFO: Serialshow startup [in D:\serialshow\app\__init__.py:28]
+2018-10-22 16:30:06,572 INFO: Serialshow startup [in D:\serialshow\app\__init__.py:28]
+2018-10-22 16:42:52,472 INFO: Serialshow startup [in D:\serialshow\app\__init__.py:28]
+2018-10-22 16:44:49,922 INFO: Serialshow startup [in D:\serialshow\app\__init__.py:28]
