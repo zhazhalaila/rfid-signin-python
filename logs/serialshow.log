@@ -73,3 +73,5 @@ AttributeError: 'NoneType' object has no attribute 'last_seen'
 2018-10-22 16:30:06,572 INFO: Serialshow startup [in D:\serialshow\app\__init__.py:28]
 2018-10-22 16:42:52,472 INFO: Serialshow startup [in D:\serialshow\app\__init__.py:28]
 2018-10-22 16:44:49,922 INFO: Serialshow startup [in D:\serialshow\app\__init__.py:28]
+2018-10-23 08:12:47,566 INFO: Serialshow startup [in D:\serialshow\app\__init__.py:28]
+2018-10-23 08:14:34,010 INFO: Serialshow startup [in D:\serialshow\app\__init__.py:28]

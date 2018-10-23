@@ -65,14 +65,6 @@ def register():
 @app.route('/class/<class_name>')
 @login_required
 def get_class(class_name):
-	classes = r.hgetall("simultaneously").values()
-	curr_time = datetime.now()
-	for class_ in classes:
-		curr_class = Class.query.filter_by(class_id=class_.decode('utf-8')).first_or_404()
-		last_seen = curr_class.last_seen
-		if curr_time - last_seen > timedelta(minutes=1):
-			r.hdel("simultaneously", class_)
-	print(r.hgetall("simultaneously").values())
 	class_ = Class.query.filter_by(class_name=class_name).first_or_404()
 	students = class_.get_student().all()
 	items = []
@@ -131,7 +123,18 @@ def signin():
 
 @app.route('/online')
 def online():
-	return render_template('onlineclass.html')
+	classes = r.hgetall("simultaneously").values()
+	curr_time = datetime.now()
+	for class_ in classes:
+		curr_class = Class.query.filter_by(class_id=class_.decode('utf-8')).first_or_404()
+		last_seen = curr_class.last_seen
+		if curr_time - last_seen > timedelta(minutes=1):
+			r.hdel("simultaneously", class_)
+	online_class = []
+	for i in r.hgetall("simultaneously").values():
+		class_ = Class.query.filter_by(class_id=i.decode('utf-8')).first_or_404()
+		online_class.append(class_)
+	return render_template('onlineclass.html', online_class=online_class)
 
 @app.route('/logout')
 def logout():
