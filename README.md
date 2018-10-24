@@ -1,5 +1,5 @@
 # rfid-signin-python
-RFID+Flask构造一个打卡系统
+RFID+Flask+Vue构造一个打卡系统
 
 目前还在完善中
 
