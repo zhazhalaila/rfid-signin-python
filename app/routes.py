@@ -136,6 +136,24 @@ def online():
 		online_class.append(class_)
 	return render_template('onlineclass.html', online_class=online_class)
 
+@app.route('/student/search')
+def student_search():
+	return render_template('student_search.html')
+
+@app.route('/api/student_history')
+def student_history():
+	name = request.args.get('name')
+	student = Student.query.filter_by(student_name=name).first_or_404()
+	history = Timetable.query.filter_by(time_student_id=student.student_id).all()
+	json_list = []
+	for i in range(0, len(history)-1):
+		dict_format = {}
+		dict_format['class_name'] = history[i].time_class_name
+		dict_format['time'] = history[i].time_time.strftime('%Y-%m-%d %H:%M:%S')
+		dict_format['active'] = history[i].active
+		json_list.append(dict_format)
+	return jsonify({'history': json_list})
+
 @app.route('/logout')
 def logout():
     logout_user()

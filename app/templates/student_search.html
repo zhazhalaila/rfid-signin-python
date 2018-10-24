@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Table V05</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/onlineclass-util.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/onlineclass-main.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/search-main.css') }}">
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/vue-resource/0.1.13/vue-resource.min.js"></script>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<!--===============================================================================================-->
+</head>
+<body>
+	<div id="app-6">
+		<div class="s003">
+      	<form>
+        	<div class="inner-form">
+          
+          	<div class="input-field second-wrap">
+            	<input id="search" type="text" placeholder="查询之后下滑有惊喜" v-model="name"/>
+          	</div>
+          	<div class="input-field third-wrap">
+            	<button class="btn-search" type="button" v-on:click="open">
+              	<svg class="svg-inline--fa fa-search fa-w-16" aria-hidden="true" data-prefix="fas" data-icon="search" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                	<path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"></path>
+              	</svg>
+            	</button>
+          	</div>
+        	</div>
+      	</form>
+    	</div>
+		<div class="limiter" id="app-6">
+			<div class="container-table100">
+				<div class="wrap-table100">
+						<div class="table">
+
+							<div class="row header">
+								<div class="cell">
+									课堂名称
+								</div>
+								<div class="cell">
+									签到时间
+								</div>
+								<div class="cell">
+									签到状态
+								</div>
+							</div>
+							<div class="row" v-for="i in result">
+								<div class="cell" data-title="课堂名称">
+									{% raw %}{{ i.class_name }}{% endraw %}
+								</div>
+								<div class="cell" data-title="签到时间">
+									{% raw %}{{ i.time }}{% endraw %}
+								</div>
+								<div class="cell" data-title="签到状态">
+									<button type="button" class="btn btn-primary " v-if="i.active">已到</button>
+									<button type="button" class="btn btn-danger" v-else>未到</button>
+								</div>
+							</div>
+						</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+<script src="{{ url_for('static', filename='js/vue_search.js') }}"></script>
+</body>
+</html>

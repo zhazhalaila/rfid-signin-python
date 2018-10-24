@@ -4,6 +4,7 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 from flask_login import LoginManager
 from logging.handlers import RotatingFileHandler
+from flask_cors import CORS
 import os
 import logging
 
@@ -12,6 +13,7 @@ app.config.from_object(Config)
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
 login = LoginManager(app)
+cors = CORS(app, resources={r"/api/*": {"origins": "*"}})
 login.login_view = 'login'
 
 if not app.debug:
