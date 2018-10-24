@@ -10,7 +10,7 @@ $(document).ready(function () {
     toAppend.classList.add('lmedia', 'text-muted', 'pt-3')
     document.getElementById('message-box').appendChild(toAppend)
     toAppend.innerHTML ='<p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">'+
-                    `<strong class="d-block text-gray-dark">${data}</strong>`+
+                    `<strong class="d-block text-gray-dark">${data.name}</strong>`+
                     '加入了课堂' + 
 					'</p>' + 
 				'</div>'
