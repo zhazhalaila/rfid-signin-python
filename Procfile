@@ -1,1 +1,1 @@
-web: flask db upgrade; gunicorn serialshow:app
+web: flask db init; flask db migrate -m "origin database"; flask db upgrade; gunicorn serialshow:app
