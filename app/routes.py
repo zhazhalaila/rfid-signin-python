@@ -8,7 +8,7 @@ from werkzeug.urls import url_parse
 from flask import request
 import redis
 
-r = redis.StrictRedis(host='localhost', port=6379, db=0)
+r = redis.from_url(os.environ['REDISCLOUD_URL'])
 current_class = []
 no_duplicate = []
 
