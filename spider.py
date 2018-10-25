@@ -21,4 +21,5 @@ while True:
 		data = data.lstrip(b'Card UID:').strip()
 		payload = {'token': token, 'rfid_id': data}
 		test = requests.get('http://127.0.0.1:5000/signin', params=payload)
+		print(test.text)
 		pusher_client.trigger('message', 'send', {'name': test.text})

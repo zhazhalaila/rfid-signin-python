@@ -63,6 +63,9 @@
                 <button type="button" class="btn btn-secondary">{{ currentTime }}</button>
                 <a href="{{ url_for('insert_student', class_name=current_user.class_name) }}" class="btn btn-info">添加新成员</a>
             </nav>
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <a href="{{ url_for('post_result', class_name=current_user.class_name) }}" class="btn btn-warning">提交签到结果(!!提交后不可更改)</a>
+            </nav>
 		<table class="table">
 		<thead>
 		<tr>
