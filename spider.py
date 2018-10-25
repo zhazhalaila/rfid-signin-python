@@ -12,7 +12,8 @@ pusher_client = Pusher(
   ssl=True
 )
 
-r = redis.StrictRedis(host='localhost', port=6379, db=0)
+pool = redis.ConnectionPool(host='redis://rediscloud:HhtJfAXEbZlWJL8X43qW3ofDxmItRcjX@redis-16318.c9.us-east-1-4.ec2.cloud.redislabs.com:16318', port=6379, db=0)
+r = redis.Redis(connection_pool=pool)
 token = r.get('curr_token')
 
 while True:
