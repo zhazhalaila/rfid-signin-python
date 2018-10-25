@@ -12,6 +12,15 @@ r = redis.StrictRedis(host='localhost', port=6379, db=0)
 current_class = []
 no_duplicate = []
 
+def get_current_classes():
+	classes = list(r.hgetall("simultaneously").values())
+	curr_time = datetime.now()
+	for class_ in classes:
+		curr_class = Class.query.filter_by(class_id=class_.decode('utf-8')).first_or_404()
+		last_seen = curr_class.last_seen
+		if curr_time - last_seen > timedelta(minutes=1):
+			r.hdel("simultaneously", class_)
+
 @app.before_request
 def before_request():
 	if current_user.is_authenticated:
@@ -129,33 +138,27 @@ def insert_student(class_name):
 
 @app.route('/signin')
 def signin():
-	classes = r.hgetall("simultaneously").values()
-	token = request.args.get('token')
+	get_current_classes()
+	classes = list(r.hgetall("simultaneously").values())
 	rfid_id = request.args.get('rfid_id')
-	curr_class = Class.query.filter_by(class_token=token).first_or_404()
-	students = curr_class.get_student().all()
-	for student in students:
-		if student.rfid_id == rfid_id:
-			log_info = Timetable(time_class_name=curr_class.class_name,
-				time_class_id=curr_class.class_id,
-				time_student_id=student.student_id,
-				time_time=datetime.now(),
-				active=True)
-			db.session.add(log_info)
-			db.session.commit()
-			return student.student_name
-
+	for class_ in reversed(classes):
+		curr_class = Class.query.filter_by(class_id=class_.decode('utf-8')).first_or_404()
+		students = curr_class.get_student().all()
+		for student in students:
+			if student.rfid_id == rfid_id:
+				log_info = Timetable(time_class_name=curr_class.class_name,
+					time_class_id=curr_class.class_id,
+					time_student_id=student.student_id,
+					time_time=datetime.now(),
+					active=True)
+				db.session.add(log_info)
+				db.session.commit()
+				return student.student_name
 	return rfid_id
 
 @app.route('/online')
 def online():
-	classes = r.hgetall("simultaneously").values()
-	curr_time = datetime.now()
-	for class_ in classes:
-		curr_class = Class.query.filter_by(class_id=class_.decode('utf-8')).first_or_404()
-		last_seen = curr_class.last_seen
-		if curr_time - last_seen > timedelta(minutes=1):
-			r.hdel("simultaneously", class_)
+	get_current_classes()
 	online_class = []
 	for i in r.hgetall("simultaneously").values():
 		class_ = Class.query.filter_by(class_id=i.decode('utf-8')).first_or_404()
