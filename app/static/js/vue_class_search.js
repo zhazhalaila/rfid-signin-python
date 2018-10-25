@@ -10,7 +10,7 @@ new Vue({
             var message = this.message
             var name = message.split(':')[0]
             var time = message.split(':')[1]
-			url = 'http://127.0.0.1:5000/api/class_history?name=' + encodeURIComponent(name)
+			url = 'https://flask-serialshow.herokuapp.com/api/class_history?name=' + encodeURIComponent(name)
                 + '&time=' + encodeURIComponent(time)
             this.$http.get(url, (data) => {
                 this.result = data.history

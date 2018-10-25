@@ -8,7 +8,7 @@ new Vue({
     methods : {
         open: function (data) {
             var name = this.name
-			url = 'http://127.0.0.1:5000/api/student_history?name=' + encodeURIComponent(name)
+			url = 'https://flask-serialshow.herokuapp.com/api/student_history?name=' + encodeURIComponent(name)
             this.$http.get(url, (data) => {
                 this.result = data.history
             }).error(function (data, status, request) {
