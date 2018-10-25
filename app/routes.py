@@ -154,7 +154,7 @@ def online():
 	for class_ in classes:
 		curr_class = Class.query.filter_by(class_id=class_.decode('utf-8')).first_or_404()
 		last_seen = curr_class.last_seen
-		if curr_time - last_seen > timedelta(minutes=1):
+		if curr_time - last_seen > timedelta(minutes=10):
 			r.hdel("simultaneously", class_)
 	online_class = []
 	for i in r.hgetall("simultaneously").values():
