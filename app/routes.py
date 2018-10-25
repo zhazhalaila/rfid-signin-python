@@ -6,7 +6,7 @@ from flask_login import current_user, login_user, logout_user, login_required
 from app.models import Class, Student, Timetable
 from werkzeug.urls import url_parse
 from flask import request
-import redis
+import redis, os
 
 r = redis.from_url(os.environ['REDISCLOUD_URL'])
 current_class = []
