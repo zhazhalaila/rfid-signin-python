@@ -32,7 +32,7 @@ class Class(UserMixin, db.Model):
 	class_id = db.Column(db.Integer, primary_key=True)
 	class_name = db.Column(db.String(128), index=True)
 	class_token = db.Column(db.String(128), unique=True)
-	class_teacher = db.Column(db.Integer, index=True)
+	class_teacher = db.Column(db.String(128), index=True)
 	password_hash = db.Column(db.String(128))
 	last_seen = db.Column(db.DateTime, default=datetime.now())
 	students = db.relationship("Student", 
