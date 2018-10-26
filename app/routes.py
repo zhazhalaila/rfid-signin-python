@@ -31,6 +31,7 @@ def before_request():
 @app.route('/index')
 @login_required
 def index():
+	r.set("current_class", current_user.class_id)
 	current_class.append(current_user.class_id)
 	no_duplicate = list(set(current_class))
 	print(no_duplicate)
