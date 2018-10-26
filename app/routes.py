@@ -18,7 +18,7 @@ def get_current_classes():
 	for class_ in classes:
 		curr_class = Class.query.filter_by(class_id=class_.decode('utf-8')).first_or_404()
 		last_seen = curr_class.last_seen
-		if curr_time - last_seen > timedelta(minutes=1):
+		if curr_time - last_seen > timedelta(minutes=10):
 			r.hdel("simultaneously", class_)
 
 
@@ -38,7 +38,6 @@ def index():
 	for i in no_duplicate:
 		r.hset("simultaneously", i, i)
 	currentTime = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
-	r.set('curr_token', current_user.class_token)
 	return render_template('index.html', currentTime=currentTime)
 	
 @app.route('/login', methods=['GET', 'POST'])
