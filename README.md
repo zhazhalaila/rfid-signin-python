@@ -17,22 +17,4 @@ URL加密 | :worried: | 0%
 ### Getting Started
 在本地的部署
 ### 准备工作
-Arduino开发板 + RFID-RC522传感器模组，
-接线方式
-
-
-Python 3.6.0
-
-注册[Pusher](https://pusher.com/) 来完成动态显示签到情况功能
-
-注册完成后会得到下面这样的连接脚本
-
-```python
-pusher_client = pusher.Pusher(
-  app_id='621177',
-  key='b5b7012005f41774f901',
-  secret='b996e0df93996214b5ae',
-  cluster='ap1',
-  ssl=True
-)
-```
+1. [硬件准备](https://github.com/zhazhalaila/rfid-signin-python/blob/master/docs/%E7%A1%AC%E4%BB%B6%E5%87%86%E5%A4%87.md)
