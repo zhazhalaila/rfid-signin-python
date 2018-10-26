@@ -15,6 +15,7 @@ RFID+Flask+Vue构造一个打卡系统
 URL加密 | :worried: | 0%
 解除课堂与学生关系 | :worried: | 0%
 页面优化 | :worried: | 0%
+正确的日期显示 | :worried: | 0%
 
 ### Getting Started
 在本地的部署
