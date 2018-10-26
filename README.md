@@ -3,6 +3,8 @@ RFID+Flask+Vue构造一个打卡系统
 
 [项目演示地址](https://flask-serialshow.herokuapp.com/)部署在了Heroku上
 
+[演示视频](https://www.bilibili.com/video/av34612101)
+
 项目功能 | 完成情况 | 满意度
 ------------ | ---------- | -----------
 动态显示签到情况|     :smiley: | 80%
