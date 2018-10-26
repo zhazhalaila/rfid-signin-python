@@ -18,3 +18,30 @@ URL加密 | :worried: | 0%
 在本地的部署
 ### 准备工作
 1. [硬件准备](https://github.com/zhazhalaila/rfid-signin-python/blob/master/docs/%E7%A1%AC%E4%BB%B6%E5%87%86%E5%A4%87.md)
+1. [软件准备](https://github.com/zhazhalaila/rfid-signin-python/blob/master/docs/%E8%BD%AF%E4%BB%B6%E5%87%86%E5%A4%87.md)
+
+### 安装
+```
+git clone https://github.com/zhazhalaila/rfid-signin-python.git
+cd rfid-signin-python
+pip install -r requirements.txt
+```
+
+### 运行与测试
+运行
+```
+set FLASK_APP=serialshow.py
+flask db init
+flask db migrate -m "first"
+flask db upgrade
+flask run
+```
+测试数据库是否正确
+```
+python tests.py
+```
+
+### Built With
+* [Redis](https://redis.io/) 主要用来构造在线用户（课堂）池
+* [Flask](http://flask.pocoo.org/) Web框架
+* [Vue](https://cn.vuejs.org/index.html) 动态查询
