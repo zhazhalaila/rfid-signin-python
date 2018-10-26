@@ -15,6 +15,7 @@ while True:
 	data = ser.readline()
 	if data.startswith(b'Card UID:'):
 		data = data.lstrip(b'Card UID:').strip()
+		print(data)
 		payload = {'rfid_id': data}
 		test = requests.get('https://flask-serialshow.herokuapp.com/signin', params=payload)
 		print(test.text)

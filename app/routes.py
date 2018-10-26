@@ -16,7 +16,7 @@ def get_current_classes():
 	classes = list(r.hgetall("simultaneously").values())
 	curr_time = datetime.now()
 	for class_ in classes:
-		curr_class = Class.query.filter_by(class_id=class_.decode('utf-8')).first_or_404()
+		curr_class = Class.query.filter_by(class_id=class_.decode('utf-8')).first()
 		last_seen = curr_class.last_seen
 		if curr_time - last_seen > timedelta(minutes=1):
 			r.hdel("simultaneously", class_)
