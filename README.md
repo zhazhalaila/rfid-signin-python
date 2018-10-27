@@ -45,7 +45,7 @@ flask run
 python tests.py
 ```
 
-[几个大坑](..)
+[几个大坑](https://github.com/zhazhalaila/rfid-signin-python/blob/master/docs/%E6%B5%8B%E8%AF%95%E6%97%B6%E7%9A%84BUG.md)
 
 ### Built With
 * [Redis](https://redis.io/) 主要用来构造在线用户（课堂）池
