@@ -2,7 +2,7 @@
 
 Redis在此项目中的功能类似于普通的数据库，主要就是用来存储在线课堂，以及对在线课堂的更新和删除，但是这样会有一个问题
 
-假设我们第一次测试时，注册了三个账号并登录，那么Hash table中会存
+假设我们第一次测试时，注册了两个账号并登录，那么Hash table中会存
 
 ID | TOKEN
 ------------ | -------------
@@ -38,3 +38,20 @@ for i in range(0, len(history)):
 	json_list.append(dict_format)
 return jsonify({'history': json_list})
 ```
+
+### 日期问题
+很明显存储UTC日期是最好的，但对于本项目来说不是，因为要构造一个范围来包含一天的二十四小时
+
+```python
+today_str = datetime.now().strftime('%Y-%m-%d')//转化为年月日
+today_format = datetime.strptime(today_str, "%Y-%m-%d")//转回datetime格式（只包含年月日不包含时分秒）
+time_student_id = student.student_id
+    ).filter(
+    Timetable.time_time > today_format
+    ).filter(
+    Timetable.time_time < today_format + timedelta(hours=24)
+    )//一天二十四小时
+```
+如果使用UTC时间，那么获取的天数就会不一样，会造成显示的BUG
+
+但是存储主机时间也会有问题，如果主机不在国内，那么时间肯定是错的！主机最好在国内
