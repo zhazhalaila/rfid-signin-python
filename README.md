@@ -74,7 +74,7 @@ python tests.py
 
 启动`spider.py`，就可以看到结果了
 
-[原理](...)
+[原理](https://github.com/zhazhalaila/rfid-signin-python/blob/master/docs/%E7%AD%BE%E5%88%B0%E5%8E%9F%E7%90%86.md)
 
 ### 贡献代码
 没有什么要求，只要能跑就行了，可以增加一些丰富的功能
