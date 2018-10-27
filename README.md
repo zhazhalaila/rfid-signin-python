@@ -79,7 +79,7 @@ python tests.py
 
 现在很流行前后端分离，后端提供API，前端只负责显示页面
 
-[原理](...)
+[原理](https://github.com/zhazhalaila/rfid-signin-python/blob/master/docs/%E4%BD%BF%E7%94%A8Vue.md)
 
 ### 与硬件交互
 
