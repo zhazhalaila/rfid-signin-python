@@ -73,6 +73,12 @@ python tests.py
 ```
 
 ### Redis存储所有在线课堂
+[原理](https://github.com/zhazhalaila/rfid-signin-python/blob/master/docs/%E4%BD%BF%E7%94%A8Redis.md)
+
+### Vue与API的交互
+
+现在很流行前后端分离，后端提供API，前端只负责显示页面
+
 [原理](...)
 
 ### 与硬件交互
