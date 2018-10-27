@@ -45,6 +45,8 @@ flask run
 python tests.py
 ```
 
+[几个大坑](..)
+
 ### Built With
 * [Redis](https://redis.io/) 主要用来构造在线用户（课堂）池
 * [Flask](http://flask.pocoo.org/) Web框架
