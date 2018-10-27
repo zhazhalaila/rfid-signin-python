@@ -40,7 +40,8 @@ flask db migrate -m "first"
 flask db upgrade
 flask run
 ```
-[数据库设计](...)
+[数据库设计](https://github.com/zhazhalaila/rfid-signin-python/blob/master/docs/%E6%95%B0%E6%8D%AE%E5%BA%93%E8%AE%BE%E8%AE%A1.md)
+
 测试数据库是否正确
 ```
 python tests.py
@@ -70,6 +71,9 @@ python tests.py
 ```
 {"history":[{"active":true,"name":"\u6d4b\u8bd5\u8d26\u53f7","time":"2018-10-27 09:06:10"}]}
 ```
+
+### Redis存储所有在线课堂
+[原理](...)
 
 ### 与硬件交互
 
