@@ -15,7 +15,8 @@ RFID+Flask+Vue构造一个打卡系统
 URL加密 | :worried: | 0%
 解除课堂与学生关系 | :worried: | 0%
 页面优化 | :worried: | 0%
-正确的日期显示 | :worried: | 0%
+
+部署的是国外的服务器因此日期显示为国外的日期
 
 ### Getting Started
 在本地的部署
@@ -48,3 +49,33 @@ python tests.py
 * [Redis](https://redis.io/) 主要用来构造在线用户（课堂）池
 * [Flask](http://flask.pocoo.org/) Web框架
 * [Vue](https://cn.vuejs.org/index.html) 动态查询
+
+### API示例
+
+查询学生签到情况，URL格式`http://127.0.0.1:5000/api/student_history?name=parameter`
+
+返回数据格式
+```
+{"history":[{"active":true,"class_name":"RFID\u4f20\u611f\u5668","time":"2018-10-27 09:06:10"}]}
+```
+
+注意返回数据格式会出现`utf`编码的信息，我们可以不用管，JS会自动解析
+
+查询当前签到情况，URL格式`http://127.0.0.1:5000/api/class_history?name=parameter&time=parameter`
+
+返回数据格式
+```
+{"history":[{"active":true,"name":"\u6d4b\u8bd5\u8d26\u53f7","time":"2018-10-27 09:06:10"}]}
+```
+
+### 与硬件交互
+
+使用的COM3/4接口，Python已经有库可以帮我们完成读取USB接口的功能
+
+启动`spider.py`，就可以看到结果了
+
+### 贡献代码
+没有什么要求，只要能跑就行了，可以增加一些丰富的功能
+
+### License
+[MIT](https://opensource.org/licenses/MIT)
