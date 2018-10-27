@@ -1,5 +1,5 @@
 ## Rfid-signin-python
-RFID+Flask+Vue构造一个打卡系统
+RFID+Flask+Vue构造一个签到系统
 
 [项目演示地址](https://flask-serialshow.herokuapp.com/)部署在了Heroku上
 
