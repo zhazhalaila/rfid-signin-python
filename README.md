@@ -40,6 +40,7 @@ flask db migrate -m "first"
 flask db upgrade
 flask run
 ```
+[数据库设计](...)
 测试数据库是否正确
 ```
 python tests.py
