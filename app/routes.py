@@ -9,8 +9,6 @@ from flask import request
 import redis
 
 r = redis.StrictRedis(host='localhost', port=6379, db=0)
-current_class = []
-no_duplicate = []
 
 def get_current_classes():
 	classes = list(r.hgetall("simultaneously").values())
@@ -31,14 +29,10 @@ def before_request():
 @app.route('/index')
 @login_required
 def index():
-	r.set("current_class", current_user.class_id)
-	current_class.append(current_user.class_id)
-	no_duplicate = list(set(current_class))
-	print(no_duplicate)
-	for i in no_duplicate:
-		r.hset("simultaneously", i, i)
+	key = current_user.class_id
+	value = key
+	r.hset("simultaneously", key, value)
 	currentTime = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
-	r.set('curr_token', current_user.class_token)
 	return render_template('index.html', currentTime=currentTime)
 	
 @app.route('/login', methods=['GET', 'POST'])
