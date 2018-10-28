@@ -4,6 +4,7 @@ RUN adduser -D serialshow
 
 WORKDIR /home/rfid-signin-python
 
+RUN apk add --no-cache --virtual .pynacl_deps build-base python3-dev libffi-dev
 COPY requirements.txt requirements.txt
 RUN python -m venv venv
 RUN venv/bin/pip install -r requirements.txt
