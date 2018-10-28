@@ -1,20 +1,7 @@
-每当课堂访问课堂主页时，就把当前课堂加入到当前在线课堂列表
-
-```python
-current_class.append(current_user.class_id)
-```
-
-这样会有一个问题，如果用户进行刷新操作也会记录，因此需要去重
-
-```python
-no_duplicate = list(set(current_class))
-```
-
 在Redis中构造Hash表
 
 ```python
-for i in no_duplicate:
-    r.hset("simultaneously", i, i)
+r.hset("simultaneously", key, value)
 ```
 
 使用Hash Table的原因也是因为去重，因为加入操作绑定在了`index()`视图，如果用户进行刷新，不希望存入重复数据
