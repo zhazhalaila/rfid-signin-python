@@ -24,6 +24,26 @@ URL加密 | :worried: | 0%
 1. [硬件准备](https://github.com/zhazhalaila/rfid-signin-python/blob/master/docs/%E7%A1%AC%E4%BB%B6%E5%87%86%E5%A4%87.md)
 1. [软件准备](https://github.com/zhazhalaila/rfid-signin-python/blob/master/docs/%E8%BD%AF%E4%BB%B6%E5%87%86%E5%A4%87.md)
 
+### 使用Docker
+
+创建容器
+
+```python
+docker build -t serialshow:latest .
+```
+
+运行容器
+
+```python
+docker run --name serialshow -d -p 8000:5000 --rm serialshow:latest
+```
+
+查看日志
+
+```python
+docker logs container
+```
+
 ### 安装
 ```
 git clone https://github.com/zhazhalaila/rfid-signin-python.git
