@@ -34,7 +34,7 @@ docker build -t serialshow:latest .
 
 运行容器
 
-```python
+```bash
 docker run --name serialshow -d -p 8000:5000 --rm serialshow:latest
 ```
 
