@@ -28,7 +28,9 @@ URL加密 | :worried: | 0%
 
 创建容器
 
-```python
+```bash
+git clone https://github.com/zhazhalaila/rfid-signin-python.git
+cd rfid-signin-python
 docker build -t serialshow:latest .
 ```
 
