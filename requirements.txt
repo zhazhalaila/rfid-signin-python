@@ -30,7 +30,7 @@ python-dateutil==2.7.3
 python-editor==1.0.3
 pytz==2018.5
 redis==2.10.6
-requests==2.19.1
+requests==2.20.0
 rq==0.12.0
 selenium==3.14.1
 six==1.11.0
