@@ -1,8 +1,8 @@
-"""first
+"""fix error
 
-Revision ID: 5ba20f3890e7
+Revision ID: 47bfaf22e9ab
 Revises: 
-Create Date: 2018-10-27 09:01:53.431848
+Create Date: 2018-11-04 15:00:40.510293
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = '5ba20f3890e7'
+revision = '47bfaf22e9ab'
 down_revision = None
 branch_labels = None
 depends_on = None

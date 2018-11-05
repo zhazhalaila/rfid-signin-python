@@ -23,10 +23,13 @@
         <a class="nav-link active" href="{{ url_for('login') }}">登录</a>
         <a class="nav-link active" href="{{ url_for('logout') }}">退出</a>
         <a class="nav-link active" href="{{ url_for('register') }}">注册教室</a>
-        <a class="nav-link" href="{{ url_for('get_class', class_name=current_user.class_name) }}">
+        <a class="nav-link active" href="{{ url_for('get_class', class_name=current_user.class_name) }}">
           课程主页
         </a>
         <a class="nav-link active" href="{{ url_for('class_search') }}">历史签到记录</a>
+        <a class="nav-link active" href="{{ url_for('group', class_name=current_user.class_name) }}">
+          学生分群
+        </a>
       </nav>
     </div>
 	

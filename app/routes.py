@@ -4,9 +4,12 @@ from app.forms import RegisterClass, LogIn, InsertStudent
 from datetime import datetime, timedelta
 from flask_login import current_user, login_user, logout_user, login_required
 from app.models import Class, Student, Timetable
+from app.algorithms.kmean import kcluster
 from werkzeug.urls import url_parse
-from flask import request
-import redis
+from flask import request, Response
+from matplotlib.backends.backend_agg import FigureCanvasAgg as FigureCanvas
+from matplotlib.figure import Figure
+import redis, io, random
 
 r = redis.StrictRedis(host='localhost', port=6379, db=0)
 
@@ -211,3 +214,26 @@ def class_history():
 def logout():
     logout_user()
     return redirect(url_for('index'))
+
+@app.route('/group/<class_name>')
+def group(class_name):
+	parent = []
+	class_ = Class.query.filter_by(class_name=class_name).first_or_404()
+	students = class_.get_student().all()
+	names = []
+	dict = {}
+	for i in range(len(students)):
+		child = []
+		dict[i] = students[i].student_name
+		historys = Timetable.query.filter_by(time_class_id=class_.class_id).filter_by(
+			time_student_id=students[i].student_id).all()
+		for history in historys:
+			time = int(history.time_time.strftime('%Y-%m-%d %H:%M:%S').split(' ')[1].replace(':', '')) \
+				/ 100000
+			child.append(time)
+		parent.append(child)
+	result = kcluster(parent)
+	for i in range(len(result)):
+		for j in range(len(result[i])):
+			result[i][j] = dict[result[i][j]]
+	return render_template("group.html", result=result)

@@ -1,0 +1,139 @@
+2018-11-04 14:57:43,806 ERROR: Exception on /favicon.ico [GET] [in d:\serialshow\venv\lib\site-packages\flask\app.py:1761]
+Traceback (most recent call last):
+  File "d:\serialshow\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1193, in _execute_context
+    context)
+  File "d:\serialshow\venv\lib\site-packages\sqlalchemy\engine\default.py", line 509, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.OperationalError: no such table: classes
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "d:\serialshow\venv\lib\site-packages\flask\app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "d:\serialshow\venv\lib\site-packages\flask\app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "d:\serialshow\venv\lib\site-packages\flask_cors\extension.py", line 161, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "d:\serialshow\venv\lib\site-packages\flask\app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "d:\serialshow\venv\lib\site-packages\flask\_compat.py", line 35, in reraise
+    raise value
+  File "d:\serialshow\venv\lib\site-packages\flask\app.py", line 1811, in full_dispatch_request
+    rv = self.preprocess_request()
+  File "d:\serialshow\venv\lib\site-packages\flask\app.py", line 2087, in preprocess_request
+    rv = func()
+  File "D:\serialshow\rfid-signin-python\app\routes.py", line 27, in before_request
+    if current_user.is_authenticated:
+  File "d:\serialshow\venv\lib\site-packages\werkzeug\local.py", line 347, in __getattr__
+    return getattr(self._get_current_object(), name)
+  File "d:\serialshow\venv\lib\site-packages\werkzeug\local.py", line 306, in _get_current_object
+    return self.__local()
+  File "d:\serialshow\venv\lib\site-packages\flask_login\utils.py", line 26, in <lambda>
+    current_user = LocalProxy(lambda: _get_user())
+  File "d:\serialshow\venv\lib\site-packages\flask_login\utils.py", line 335, in _get_user
+    current_app.login_manager._load_user()
+  File "d:\serialshow\venv\lib\site-packages\flask_login\login_manager.py", line 353, in _load_user
+    return self._load_from_cookie(request.cookies[cookie_name])
+  File "d:\serialshow\venv\lib\site-packages\flask_login\login_manager.py", line 392, in _load_from_cookie
+    self.reload_user()
+  File "d:\serialshow\venv\lib\site-packages\flask_login\login_manager.py", line 321, in reload_user
+    user = self.user_callback(user_id)
+  File "D:\serialshow\rfid-signin-python\app\models.py", line 75, in load_user
+    return Class.query.get(int(id))
+  File "d:\serialshow\venv\lib\site-packages\sqlalchemy\orm\query.py", line 924, in get
+    ident, loading.load_on_pk_identity)
+  File "d:\serialshow\venv\lib\site-packages\sqlalchemy\orm\query.py", line 1007, in _get_impl
+    return db_load_fn(self, primary_key_identity)
+  File "d:\serialshow\venv\lib\site-packages\sqlalchemy\orm\loading.py", line 250, in load_on_pk_identity
+    return q.one()
+  File "d:\serialshow\venv\lib\site-packages\sqlalchemy\orm\query.py", line 2954, in one
+    ret = self.one_or_none()
+  File "d:\serialshow\venv\lib\site-packages\sqlalchemy\orm\query.py", line 2924, in one_or_none
+    ret = list(self)
+  File "d:\serialshow\venv\lib\site-packages\sqlalchemy\orm\query.py", line 2995, in __iter__
+    return self._execute_and_instances(context)
+  File "d:\serialshow\venv\lib\site-packages\sqlalchemy\orm\query.py", line 3018, in _execute_and_instances
+    result = conn.execute(querycontext.statement, self._params)
+  File "d:\serialshow\venv\lib\site-packages\sqlalchemy\engine\base.py", line 948, in execute
+    return meth(self, multiparams, params)
+  File "d:\serialshow\venv\lib\site-packages\sqlalchemy\sql\elements.py", line 269, in _execute_on_connection
+    return connection._execute_clauseelement(self, multiparams, params)
+  File "d:\serialshow\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1060, in _execute_clauseelement
+    compiled_sql, distilled_params
+  File "d:\serialshow\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1200, in _execute_context
+    context)
+  File "d:\serialshow\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1413, in _handle_dbapi_exception
+    exc_info
+  File "d:\serialshow\venv\lib\site-packages\sqlalchemy\util\compat.py", line 265, in raise_from_cause
+    reraise(type(exception), exception, tb=exc_tb, cause=cause)
+  File "d:\serialshow\venv\lib\site-packages\sqlalchemy\util\compat.py", line 248, in reraise
+    raise value.with_traceback(tb)
+  File "d:\serialshow\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1193, in _execute_context
+    context)
+  File "d:\serialshow\venv\lib\site-packages\sqlalchemy\engine\default.py", line 509, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) no such table: classes [SQL: 'SELECT classes.class_id AS classes_class_id, classes.class_name AS classes_class_name, classes.class_token AS classes_class_token, classes.class_teacher AS classes_class_teacher, classes.password_hash AS classes_password_hash, classes.last_seen AS classes_last_seen \nFROM classes \nWHERE classes.class_id = ?'] [parameters: (1,)] (Background on this error at: http://sqlalche.me/e/e3q8)
+2018-11-04 14:58:46,542 INFO: Serialshow startup [in D:\serialshow\rfid-signin-python\app\__init__.py:30]
+2018-11-04 14:58:52,076 INFO: Serialshow startup [in D:\serialshow\rfid-signin-python\app\__init__.py:30]
+2018-11-04 14:59:44,618 INFO: Serialshow startup [in D:\serialshow\rfid-signin-python\app\__init__.py:30]
+2018-11-04 15:00:26,609 INFO: Serialshow startup [in D:\serialshow\rfid-signin-python\app\__init__.py:30]
+2018-11-04 15:00:39,831 INFO: Serialshow startup [in D:\serialshow\rfid-signin-python\app\__init__.py:30]
+2018-11-04 15:00:46,524 INFO: Serialshow startup [in D:\serialshow\rfid-signin-python\app\__init__.py:30]
+2018-11-04 15:00:54,136 INFO: Serialshow startup [in D:\serialshow\rfid-signin-python\app\__init__.py:30]
+2018-11-04 15:01:00,376 INFO: Serialshow startup [in D:\serialshow\rfid-signin-python\app\__init__.py:30]
+2018-11-04 15:01:37,102 ERROR: Exception on /group/TEST [GET] [in d:\serialshow\venv\lib\site-packages\flask\app.py:1761]
+Traceback (most recent call last):
+  File "d:\serialshow\venv\lib\site-packages\flask\app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "d:\serialshow\venv\lib\site-packages\flask\app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "d:\serialshow\venv\lib\site-packages\flask_cors\extension.py", line 161, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "d:\serialshow\venv\lib\site-packages\flask\app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "d:\serialshow\venv\lib\site-packages\flask\_compat.py", line 35, in reraise
+    raise value
+  File "d:\serialshow\venv\lib\site-packages\flask\app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "d:\serialshow\venv\lib\site-packages\flask\app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+TypeError: group() got an unexpected keyword argument 'class_name'
+2018-11-04 15:01:58,558 INFO: Serialshow startup [in D:\serialshow\rfid-signin-python\app\__init__.py:30]
+2018-11-04 15:02:00,566 ERROR: Exception on /group/TEST [GET] [in d:\serialshow\venv\lib\site-packages\flask\app.py:1761]
+Traceback (most recent call last):
+  File "d:\serialshow\venv\lib\site-packages\flask\app.py", line 1974, in make_response
+    rv = self.response_class.force_type(rv, request.environ)
+  File "d:\serialshow\venv\lib\site-packages\werkzeug\wrappers.py", line 921, in force_type
+    response = BaseResponse(*_run_wsgi_app(response, environ))
+  File "d:\serialshow\venv\lib\site-packages\werkzeug\wrappers.py", line 59, in _run_wsgi_app
+    return _run_wsgi_app(*args)
+  File "d:\serialshow\venv\lib\site-packages\werkzeug\test.py", line 923, in run_wsgi_app
+    app_rv = app(environ, start_response)
+TypeError: 'list' object is not callable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "d:\serialshow\venv\lib\site-packages\flask\app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "d:\serialshow\venv\lib\site-packages\flask\app.py", line 1816, in full_dispatch_request
+    return self.finalize_request(rv)
+  File "d:\serialshow\venv\lib\site-packages\flask\app.py", line 1831, in finalize_request
+    response = self.make_response(rv)
+  File "d:\serialshow\venv\lib\site-packages\flask\app.py", line 1982, in make_response
+    reraise(TypeError, new_error, sys.exc_info()[2])
+  File "d:\serialshow\venv\lib\site-packages\flask\_compat.py", line 34, in reraise
+    raise value.with_traceback(tb)
+  File "d:\serialshow\venv\lib\site-packages\flask\app.py", line 1974, in make_response
+    rv = self.response_class.force_type(rv, request.environ)
+  File "d:\serialshow\venv\lib\site-packages\werkzeug\wrappers.py", line 921, in force_type
+    response = BaseResponse(*_run_wsgi_app(response, environ))
+  File "d:\serialshow\venv\lib\site-packages\werkzeug\wrappers.py", line 59, in _run_wsgi_app
+    return _run_wsgi_app(*args)
+  File "d:\serialshow\venv\lib\site-packages\werkzeug\test.py", line 923, in run_wsgi_app
+    app_rv = app(environ, start_response)
+TypeError: 'list' object is not callable
+The view function did not return a valid response. The return type must be a string, tuple, Response instance, or WSGI callable, but it was a list.
+2018-11-04 15:03:36,791 INFO: Serialshow startup [in D:\serialshow\rfid-signin-python\app\__init__.py:30]
+2018-11-04 15:05:27,859 INFO: Serialshow startup [in D:\serialshow\rfid-signin-python\app\__init__.py:30]
