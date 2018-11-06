@@ -110,6 +110,12 @@ python tests.py
 
 [原理](https://github.com/zhazhalaila/rfid-signin-python/blob/master/docs/%E7%AD%BE%E5%88%B0%E5%8E%9F%E7%90%86.md)
 
+### URL加密
+
+使用[Vigenère cipher算法加密](https://en.wikipedia.org/wiki/Vigen%C3%A8re_cipher)
+
+[加密操作](...)
+
 ### 贡献代码
 没有什么要求，只要能跑就行了，可以增加一些丰富的功能
 
