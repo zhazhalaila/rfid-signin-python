@@ -9,7 +9,7 @@ from werkzeug.urls import url_parse
 from flask import request, Response
 from matplotlib.backends.backend_agg import FigureCanvasAgg as FigureCanvas
 from matplotlib.figure import Figure
-import redis, io, random
+import redis, io, random, base64
 
 r = redis.StrictRedis(host='localhost', port=6379, db=0)
 
@@ -21,6 +21,15 @@ def get_current_classes():
 		last_seen = curr_class.last_seen
 		if curr_time - last_seen > timedelta(minutes=1):
 			r.hdel("simultaneously", class_)
+
+def decode(key, enc):
+    dec = []
+    enc = base64.urlsafe_b64decode(enc).decode()
+    for i in range(len(enc)):
+        key_c = key[i % len(key)]
+        dec_c = chr((256 + ord(enc[i]) - ord(key_c)) % 256)
+        dec.append(dec_c)
+    return "".join(dec)
 
 @app.before_request
 def before_request():
@@ -138,7 +147,9 @@ def insert_student(class_name):
 def signin():
 	get_current_classes()
 	classes = list(r.hgetall("simultaneously").values())
-	rfid_id = request.args.get('rfid_id')
+	fake_id = request.args.get('rfid_id')
+	secret = request.args.get('secret')
+	rfid_id = decode(secret, fake_id)[2:-1]
 	for class_ in reversed(classes):
 		curr_class = Class.query.filter_by(class_id=class_.decode('utf-8')).first_or_404()
 		students = curr_class.get_student().all()
