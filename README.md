@@ -13,7 +13,7 @@ RFID+Flask+Vue构造一个签到系统
 用户注册 | :smiley: | 80%
 课堂绑定学生 | :smiley: | 80%
 学生分群 | :smiley: | 90%
-URL加密 | :worried: | 0%
+URL加密 | :smiley: | 90%
 解除课堂与学生关系 | :worried: | 0%
 页面优化 | :worried: | 0%
 
