@@ -116,6 +116,14 @@ python tests.py
 
 [加密操作](...)
 
+### kmean算法
+
+参考链接:
+  
+[集体智慧编程 第三章P42-P44](https://book.douban.com/subject/3288908/)
+
+[K-Means Algorithm](https://www.coursera.org/lecture/machine-learning/k-means-algorithm-93VPG)
+
 ### 贡献代码
 没有什么要求，只要能跑就行了，可以增加一些丰富的功能
 
