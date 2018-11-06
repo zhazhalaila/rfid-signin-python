@@ -7,9 +7,18 @@ from app.models import Class, Student, Timetable
 from app.algorithms.kmean import kcluster
 from werkzeug.urls import url_parse
 from flask import request
-import redis, os
+import redis, os, base64
 
 r = redis.from_url(os.environ['REDISCLOUD_URL'])
+
+def decode(key, enc):
+    dec = []
+    enc = base64.urlsafe_b64decode(enc).decode()
+    for i in range(len(enc)):
+        key_c = key[i % len(key)]
+        dec_c = chr((256 + ord(enc[i]) - ord(key_c)) % 256)
+        dec.append(dec_c)
+    return "".join(dec)
 
 def get_current_classes():
 	classes = list(r.hgetall("simultaneously").values())
@@ -138,7 +147,9 @@ def insert_student(class_name):
 def signin():
 	get_current_classes()
 	classes = list(r.hgetall("simultaneously").values())
-	rfid_id = request.args.get('rfid_id')
+	fake_id = request.args.get('rfid_id')
+	secret = request.args.get('secret')
+	rfid_id = decode(secret, fake_id)[2:-1]
 	for class_ in reversed(classes):
 		curr_class = Class.query.filter_by(class_id=class_.decode('utf-8')).first_or_404()
 		students = curr_class.get_student().all()
