@@ -16,6 +16,12 @@ login = LoginManager(app)
 cors = CORS(app, resources={r"/api/*": {"origins": "*"}})
 login.login_view = 'login'
 
+from app.errors import bp as errors_bp
+app.register_blueprint(errors_bp)
+
+from app.api import bp as api_bp
+app.register_blueprint(api_bp)
+
 if not app.debug:
 	if not os.path.exists('logs'):
 		os.mkdir('logs')
