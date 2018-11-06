@@ -58,8 +58,6 @@ pip install -r requirements.txt
 运行
 ```
 set FLASK_APP=serialshow.py
-flask db init
-flask db migrate -m "first"
 flask db upgrade
 flask run
 ```
