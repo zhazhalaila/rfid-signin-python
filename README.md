@@ -121,7 +121,7 @@ python fakedata.py
 
 使用[Vigenère cipher算法加密](https://en.wikipedia.org/wiki/Vigen%C3%A8re_cipher)
 
-[加密操作](...)
+[加密操作](https://github.com/zhazhalaila/rfid-signin-python/blob/master/docs/URL%E5%8A%A0%E5%AF%86.md)
 
 ### kmean算法
 
