@@ -5,6 +5,8 @@ RFID+Flask+Vue构造一个签到系统
 
 [演示视频](https://www.bilibili.com/video/av34612101)
 
+测试账号名称: TEST 密码: password
+
 项目功能 | 完成情况 | 满意度
 ------------ | ---------- | -----------
 动态显示签到情况|     :smiley: | 80%
@@ -66,6 +68,11 @@ flask run
 测试数据库是否正确
 ```
 python tests.py
+```
+
+生成伪造数据
+```
+python fakedata.py
 ```
 
 [几个大坑](https://github.com/zhazhalaila/rfid-signin-python/blob/master/docs/%E6%B5%8B%E8%AF%95%E6%97%B6%E7%9A%84BUG.md)
