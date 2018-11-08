@@ -27,6 +27,9 @@
           课程主页
         </a>
         <a class="nav-link active" href="{{ url_for('class_search') }}">历史签到记录</a>
+		<a class="nav-link active" href="{{ url_for('group', class_name=current_user.class_name) }}">
+          学生分群
+        </a>
       </nav>
     </div>
 	
