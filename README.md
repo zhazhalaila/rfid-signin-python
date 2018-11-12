@@ -5,6 +5,8 @@ RFID+Flask+Vue构造一个签到系统
 
 [演示视频](https://www.bilibili.com/video/av34612101)
 
+测试账号名称: TEST 密码: password
+
 项目功能 | 完成情况 | 满意度
 ------------ | ---------- | -----------
 动态显示签到情况|     :smiley: | 80%
@@ -13,8 +15,10 @@ RFID+Flask+Vue构造一个签到系统
 用户注册 | :smiley: | 80%
 课堂绑定学生 | :smiley: | 80%
 学生分群 | :smiley: | 90%
-URL加密 | :worried: | 0%
+URL加密 | :smiley: | 90%
 解除课堂与学生关系 | :worried: | 0%
+单元测试 | :worried: | 0%
+异常处理 | :worried: | 0%
 页面优化 | :worried: | 0%
 
 部署的是国外的服务器因此日期显示为国外的日期
@@ -68,6 +72,11 @@ flask run
 python tests.py
 ```
 
+生成伪造数据
+```
+python fakedata.py
+```
+
 [几个大坑](https://github.com/zhazhalaila/rfid-signin-python/blob/master/docs/%E6%B5%8B%E8%AF%95%E6%97%B6%E7%9A%84BUG.md)
 
 ### Built With
@@ -109,6 +118,20 @@ python tests.py
 启动`spider.py`，就可以看到结果了
 
 [原理](https://github.com/zhazhalaila/rfid-signin-python/blob/master/docs/%E7%AD%BE%E5%88%B0%E5%8E%9F%E7%90%86.md)
+
+### URL加密
+
+使用[Vigenère cipher算法加密](https://en.wikipedia.org/wiki/Vigen%C3%A8re_cipher)
+
+[加密操作](https://github.com/zhazhalaila/rfid-signin-python/blob/master/docs/URL%E5%8A%A0%E5%AF%86.md)
+
+### kmean算法
+
+参考链接:
+  
+[集体智慧编程 第三章P42-P44](https://book.douban.com/subject/3288908/)
+
+[K-Means Algorithm](https://www.coursera.org/lecture/machine-learning/k-means-algorithm-93VPG)
 
 ### 贡献代码
 没有什么要求，只要能跑就行了，可以增加一些丰富的功能
