@@ -103,7 +103,7 @@ def register():
 def get_class(class_name):
 	'''
 	How to show student was log in?
-	A day has 24 hours. So I can get current day, and add 24 hours for it or not to represent
+	A day has 24 hours. So I can get current day, and add 24 hours for it to represent
 	a day from 0~24.
 	'''
 	class_ = Class.query.filter_by(class_name=class_name).first_or_404()
