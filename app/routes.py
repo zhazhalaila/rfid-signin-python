@@ -9,12 +9,18 @@ from werkzeug.urls import url_parse
 from flask import request, Response
 from matplotlib.backends.backend_agg import FigureCanvasAgg as FigureCanvas
 from matplotlib.figure import Figure
-import redis, io, random, base64
+import redis, io, base64
 
 r = redis.StrictRedis(host='localhost', port=6379, db=0)
 
 def get_current_classes():
-	classes = list(r.hgetall("simultaneously").values())
+	'''
+	Variable:
+		classes is to store current online class
+	If statement is to jundge class is online or not online. If class not browse website beyond
+	one minute, it's not online
+	'''
+	classes = list(r.hgetall("simultaneously").values()) 
 	curr_time = datetime.now()
 	for class_ in classes:
 		curr_class = Class.query.filter_by(class_id=class_.decode('utf-8')).first_or_404()
@@ -23,16 +29,24 @@ def get_current_classes():
 			r.hdel("simultaneously", class_)
 
 def decode(key, enc):
-    dec = []
-    enc = base64.urlsafe_b64decode(enc).decode()
-    for i in range(len(enc)):
-        key_c = key[i % len(key)]
-        dec_c = chr((256 + ord(enc[i]) - ord(key_c)) % 256)
-        dec.append(dec_c)
-    return "".join(dec)
+	'''
+	This decode algorithms is copy from
+		https://stackoverflow.com/questions/2490334/simple-way-to-encode-a-string-according-to-a-password
+	If you want to learn more, please search Vigenère cipher
+	'''
+	dec = []
+	enc = base64.urlsafe_b64decode(enc).decode()
+	for i in range(len(enc)):
+		key_c = key[i % len(key)]
+		dec_c = chr((256 + ord(enc[i]) - ord(key_c)) % 256)
+		dec.append(dec_c)
+	return "".join(dec)
 
 @app.before_request
 def before_request():
+	'''
+	This function is to trace class last browse time
+	'''
 	if current_user.is_authenticated:
 		current_user.last_seen = datetime.now()
 		db.session.commit()
@@ -41,6 +55,12 @@ def before_request():
 @app.route('/index')
 @login_required
 def index():
+	'''
+	When a class browse index.html, I will stor it to current online classes use HASH function.
+	Why hash?
+		Because class maybe browse index page for many times, I don't want to store it for many
+		times.
+	'''
 	key = current_user.class_id
 	value = key
 	r.hset("simultaneously", key, value)
@@ -81,20 +101,24 @@ def register():
 @app.route('/class/<class_name>')
 @login_required
 def get_class(class_name):
+	'''
+	How to show student was log in?
+	A day has 24 hours. So I can get current day, and add 24 hours for it or not to represent
+	a day from 0~24.
+	'''
 	class_ = Class.query.filter_by(class_name=class_name).first_or_404()
 	students = class_.get_student().all()
 	items = []
 	today_str = datetime.now().strftime('%Y-%m-%d')
-	print(today_str)
 	today_format = datetime.strptime(today_str, "%Y-%m-%d")
 	for student in students:
 		curr_log_info = Timetable.query.filter_by(time_class_id=class_.class_id).filter_by(
-			time_student_id = student.student_id
+				time_student_id = student.student_id
 			).filter(
-			Timetable.time_time > today_format
+				Timetable.time_time > today_format
 			).filter(
-			Timetable.time_time < today_format + timedelta(hours=24)
-			).first()
+				Timetable.time_time < today_format + timedelta(hours=24)
+		).first()
 		if curr_log_info is None:
 			active = False
 		else:
@@ -111,21 +135,26 @@ def post_result(class_name):
 	today_str = datetime.now().strftime('%Y-%m-%d')
 	today_format = datetime.strptime(today_str, "%Y-%m-%d")
 	for student in students:
+
 		curr_log_info = Timetable.query.filter_by(time_class_id=class_.class_id).filter_by(
-			time_student_id = student.student_id
+				time_student_id = student.student_id
 			).filter(
-			Timetable.time_time > today_format
+				Timetable.time_time > today_format
 			).filter(
-			Timetable.time_time < today_format + timedelta(hours=24)
-			).first()
+				Timetable.time_time < today_format + timedelta(hours=24)
+		).first()
+
 		if curr_log_info is None:
+
 			write_log_info = Timetable(time_class_name=class_.class_name,
 				time_class_id=class_.class_id,
 				time_student_id=student.student_id,
 				time_time=datetime.now(),
 				active=False)
+
 			db.session.add(write_log_info)
 			db.session.commit()
+
 	return redirect(url_for('get_class', class_name=current_user.class_name))
 
 @app.route('/insert/<class_name>', methods=['GET', 'POST'])
@@ -145,6 +174,11 @@ def insert_student(class_name):
 
 @app.route('/signin')
 def signin():
+	'''
+	Vigenère cipher algorithm to encode URL.
+	How to decode?
+	When program request this page, it will carrier key which to use decode.
+	'''
 	get_current_classes()
 	classes = list(r.hgetall("simultaneously").values())
 	fake_id = request.args.get('rfid_id')
@@ -189,10 +223,14 @@ def logout():
 
 @app.route('/group/<class_name>')
 def group(class_name):
+	'''
+	Kmean algorithm to Grouping.
+	Input is 2D list, return is 1D list.
+	Using dict to store index and name, after get result. Using dict to translate index->name.
+	'''
 	parent = []
 	class_ = Class.query.filter_by(class_name=class_name).first_or_404()
 	students = class_.get_student().all()
-	names = []
 	dict = {}
 	for i in range(len(students)):
 		child = []
