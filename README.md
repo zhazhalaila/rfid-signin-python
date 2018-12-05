@@ -17,7 +17,6 @@ RFID+Flask+Vue+Redis构造一个签到系统
 学生分群 | :smiley: | 90%
 URL加密 | :smiley: | 90%
 解除课堂与学生关系 | :worried: | 0%
-单元测试 | :worried: | 0%
 异常处理 | :worried: | 0%
 页面优化 | :worried: | 0%
 
