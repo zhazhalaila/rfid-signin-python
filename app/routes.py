@@ -241,4 +241,4 @@ def group(class_name):
 	for i in range(len(result)):
 		for j in range(len(result[i])):
 			result[i][j] = dict[result[i][j]]
-	return render_template("group.html", result=result) #test for ssh connect
+	return render_template("group.html", result=result)
