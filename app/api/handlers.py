@@ -22,6 +22,7 @@ def student_history():
 def class_history():
 	class_name = request.args.get('name')
 	class_ = Class.query.filter_by(class_name=class_name).first_or_404()
+	print(class_)
 	students = class_.get_student().all()
 	time = request.args.get('time')
 	time_format = datetime.strptime(time, "%Y-%m-%d")
@@ -36,7 +37,13 @@ def class_history():
 			).first()
 		dict_format = {}
 		dict_format['name'] = student.student_name
-		dict_format['time'] = log_info.time_time.strftime('%Y-%m-%d %H:%M:%S')
-		dict_format['active'] = log_info.active
+		try:
+			dict_format['time'] = log_info.time_time.strftime('%Y-%m-%d %H:%M:%S')
+		except:
+			pass
+		try:
+			dict_format['active'] = log_info.active
+		except:
+			dict_format['active'] = False
 		history.append(dict_format)
 	return jsonify({'history': history})
