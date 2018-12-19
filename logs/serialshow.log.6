@@ -1,0 +1,83 @@
+2018-12-19 08:51:23,004 INFO: Serialshow startup [in D:\rfid\rfid-signin-python\app\__init__.py:36]
+2018-12-19 08:53:36,290 INFO: Serialshow startup [in D:\rfid\rfid-signin-python\app\__init__.py:36]
+2018-12-19 08:53:54,132 INFO: Serialshow startup [in D:\rfid\rfid-signin-python\app\__init__.py:36]
+2018-12-19 08:55:24,097 INFO: Serialshow startup [in D:\rfid\rfid-signin-python\app\__init__.py:36]
+2018-12-19 08:55:38,421 INFO: Serialshow startup [in D:\rfid\rfid-signin-python\app\__init__.py:36]
+2018-12-19 08:55:53,319 INFO: Serialshow startup [in D:\rfid\rfid-signin-python\app\__init__.py:36]
+2018-12-19 08:56:53,502 INFO: Serialshow startup [in D:\rfid\rfid-signin-python\app\__init__.py:36]
+2018-12-19 08:56:59,696 ERROR: Exception on / [GET] [in d:\rfid\venv\lib\site-packages\flask\app.py:1761]
+Traceback (most recent call last):
+  File "d:\rfid\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1193, in _execute_context
+    context)
+  File "d:\rfid\venv\lib\site-packages\sqlalchemy\engine\default.py", line 509, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.OperationalError: no such table: classes
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "d:\rfid\venv\lib\site-packages\flask\app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "d:\rfid\venv\lib\site-packages\flask\app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "d:\rfid\venv\lib\site-packages\flask_cors\extension.py", line 161, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "d:\rfid\venv\lib\site-packages\flask\app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "d:\rfid\venv\lib\site-packages\flask\_compat.py", line 35, in reraise
+    raise value
+  File "d:\rfid\venv\lib\site-packages\flask\app.py", line 1811, in full_dispatch_request
+    rv = self.preprocess_request()
+  File "d:\rfid\venv\lib\site-packages\flask\app.py", line 2087, in preprocess_request
+    rv = func()
+  File "D:\rfid\rfid-signin-python\app\routes.py", line 48, in before_request
+    if current_user.is_authenticated:
+  File "d:\rfid\venv\lib\site-packages\werkzeug\local.py", line 347, in __getattr__
+    return getattr(self._get_current_object(), name)
+  File "d:\rfid\venv\lib\site-packages\werkzeug\local.py", line 306, in _get_current_object
+    return self.__local()
+  File "d:\rfid\venv\lib\site-packages\flask_login\utils.py", line 26, in <lambda>
+    current_user = LocalProxy(lambda: _get_user())
+  File "d:\rfid\venv\lib\site-packages\flask_login\utils.py", line 335, in _get_user
+    current_app.login_manager._load_user()
+  File "d:\rfid\venv\lib\site-packages\flask_login\login_manager.py", line 353, in _load_user
+    return self._load_from_cookie(request.cookies[cookie_name])
+  File "d:\rfid\venv\lib\site-packages\flask_login\login_manager.py", line 392, in _load_from_cookie
+    self.reload_user()
+  File "d:\rfid\venv\lib\site-packages\flask_login\login_manager.py", line 321, in reload_user
+    user = self.user_callback(user_id)
+  File "D:\rfid\rfid-signin-python\app\models.py", line 75, in load_user
+    return Class.query.get(int(id))
+  File "d:\rfid\venv\lib\site-packages\sqlalchemy\orm\query.py", line 924, in get
+    ident, loading.load_on_pk_identity)
+  File "d:\rfid\venv\lib\site-packages\sqlalchemy\orm\query.py", line 1007, in _get_impl
+    return db_load_fn(self, primary_key_identity)
+  File "d:\rfid\venv\lib\site-packages\sqlalchemy\orm\loading.py", line 250, in load_on_pk_identity
+    return q.one()
+  File "d:\rfid\venv\lib\site-packages\sqlalchemy\orm\query.py", line 2954, in one
+    ret = self.one_or_none()
+  File "d:\rfid\venv\lib\site-packages\sqlalchemy\orm\query.py", line 2924, in one_or_none
+    ret = list(self)
+  File "d:\rfid\venv\lib\site-packages\sqlalchemy\orm\query.py", line 2995, in __iter__
+    return self._execute_and_instances(context)
+  File "d:\rfid\venv\lib\site-packages\sqlalchemy\orm\query.py", line 3018, in _execute_and_instances
+    result = conn.execute(querycontext.statement, self._params)
+  File "d:\rfid\venv\lib\site-packages\sqlalchemy\engine\base.py", line 948, in execute
+    return meth(self, multiparams, params)
+  File "d:\rfid\venv\lib\site-packages\sqlalchemy\sql\elements.py", line 269, in _execute_on_connection
+    return connection._execute_clauseelement(self, multiparams, params)
+  File "d:\rfid\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1060, in _execute_clauseelement
+    compiled_sql, distilled_params
+  File "d:\rfid\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1200, in _execute_context
+    context)
+  File "d:\rfid\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1413, in _handle_dbapi_exception
+    exc_info
+  File "d:\rfid\venv\lib\site-packages\sqlalchemy\util\compat.py", line 265, in raise_from_cause
+    reraise(type(exception), exception, tb=exc_tb, cause=cause)
+  File "d:\rfid\venv\lib\site-packages\sqlalchemy\util\compat.py", line 248, in reraise
+    raise value.with_traceback(tb)
+  File "d:\rfid\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1193, in _execute_context
+    context)
+  File "d:\rfid\venv\lib\site-packages\sqlalchemy\engine\default.py", line 509, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) no such table: classes [SQL: 'SELECT classes.class_id AS classes_class_id, classes.class_name AS classes_class_name, classes.class_token AS classes_class_token, classes.class_teacher AS classes_class_teacher, classes.password_hash AS classes_password_hash, classes.last_seen AS classes_last_seen \nFROM classes \nWHERE classes.class_id = ?'] [parameters: (1,)] (Background on this error at: http://sqlalche.me/e/e3q8)

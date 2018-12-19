@@ -16,8 +16,10 @@
   			<div class="card bg-warning">
   		{% elif group|length == 2 %}
   			<div class="card bg-danger">
+  		{% elif group|length == 0 %}
+		
   		{% else %}
-  			<div class="card bg-primary">
+			<div class="card bg-primary">
   		{% endif %}
   			<ul class="list-group list-group-flush">
   				{% for i in group %}

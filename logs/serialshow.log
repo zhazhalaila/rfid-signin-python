@@ -1,0 +1,76 @@
+2018-12-19 14:59:34,694 ERROR: Exception on /group/TEST [GET] [in d:\rfid\venv\lib\site-packages\flask\app.py:1761]
+Traceback (most recent call last):
+  File "d:\rfid\venv\lib\site-packages\flask\app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "d:\rfid\venv\lib\site-packages\flask\app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "d:\rfid\venv\lib\site-packages\flask_cors\extension.py", line 161, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "d:\rfid\venv\lib\site-packages\flask\app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "d:\rfid\venv\lib\site-packages\flask\_compat.py", line 35, in reraise
+    raise value
+  File "d:\rfid\venv\lib\site-packages\flask\app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "d:\rfid\venv\lib\site-packages\flask\app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "D:\rfid\rfid-signin-python\app\routes.py", line 240, in group
+    result = kcluster(parent)
+  File "D:\rfid\rfid-signin-python\app\algorithms\kmean.py", line 40, in kcluster
+    d = distance(clusters[i], row)
+  File "D:\rfid\rfid-signin-python\app\algorithms\kmean.py", line 15, in person
+    num = pSum - (sum1*sum2/len(minLen))
+TypeError: object of type 'int' has no len()
+2018-12-19 15:00:18,825 INFO: Serialshow startup [in D:\rfid\rfid-signin-python\app\__init__.py:36]
+2018-12-19 15:00:20,683 ERROR: Exception on /group/TEST [GET] [in d:\rfid\venv\lib\site-packages\flask\app.py:1761]
+Traceback (most recent call last):
+  File "d:\rfid\venv\lib\site-packages\flask\app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "d:\rfid\venv\lib\site-packages\flask\app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "d:\rfid\venv\lib\site-packages\flask_cors\extension.py", line 161, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "d:\rfid\venv\lib\site-packages\flask\app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "d:\rfid\venv\lib\site-packages\flask\_compat.py", line 35, in reraise
+    raise value
+  File "d:\rfid\venv\lib\site-packages\flask\app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "d:\rfid\venv\lib\site-packages\flask\app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "D:\rfid\rfid-signin-python\app\routes.py", line 240, in group
+    result = kcluster(parent)
+  File "D:\rfid\rfid-signin-python\app\algorithms\kmean.py", line 40, in kcluster
+    d = distance(clusters[i], row)
+  File "D:\rfid\rfid-signin-python\app\algorithms\kmean.py", line 15, in person
+    num = pSum - (sum1*sum2/len(minLen))
+TypeError: object of type 'int' has no len()
+2018-12-19 15:00:45,391 INFO: Serialshow startup [in D:\rfid\rfid-signin-python\app\__init__.py:36]
+2018-12-19 15:00:47,020 ERROR: Exception on /group/TEST [GET] [in d:\rfid\venv\lib\site-packages\flask\app.py:1761]
+Traceback (most recent call last):
+  File "d:\rfid\venv\lib\site-packages\flask\app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "d:\rfid\venv\lib\site-packages\flask\app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "d:\rfid\venv\lib\site-packages\flask_cors\extension.py", line 161, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "d:\rfid\venv\lib\site-packages\flask\app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "d:\rfid\venv\lib\site-packages\flask\_compat.py", line 35, in reraise
+    raise value
+  File "d:\rfid\venv\lib\site-packages\flask\app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "d:\rfid\venv\lib\site-packages\flask\app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "D:\rfid\rfid-signin-python\app\routes.py", line 240, in group
+    result = kcluster(parent)
+  File "D:\rfid\rfid-signin-python\app\algorithms\kmean.py", line 40, in kcluster
+    d = distance(clusters[i], row)
+  File "D:\rfid\rfid-signin-python\app\algorithms\kmean.py", line 15, in person
+    num = pSum - (sum1*sum2/len(minLen))
+TypeError: object of type 'int' has no len()
+2018-12-19 15:01:38,871 INFO: Serialshow startup [in D:\rfid\rfid-signin-python\app\__init__.py:36]
+2018-12-19 15:02:53,883 INFO: Serialshow startup [in D:\rfid\rfid-signin-python\app\__init__.py:36]
+2018-12-19 15:04:14,624 INFO: Serialshow startup [in D:\rfid\rfid-signin-python\app\__init__.py:36]
+2018-12-19 15:07:25,738 INFO: Serialshow startup [in D:\rfid\rfid-signin-python\app\__init__.py:36]
+2018-12-19 15:07:58,214 INFO: Serialshow startup [in D:\rfid\rfid-signin-python\app\__init__.py:36]

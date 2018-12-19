@@ -17,10 +17,16 @@ def person(v1, v2):
 	return 1.0-num/den
 
 def kcluster(rows, distance=person, k=10):
+	maxlen = max([len(row) for row in rows])
+	for i in range(len(rows)):
+		if len(rows[i]) != maxlen:
+			for j in range(maxlen-1):
+				rows[i].append(0.001)
+			print(rows[i])
 	ranges = [(min([row[i] for row in rows]), max([row[i] for row in rows]))
 		for i in range(len(rows[0]))]
 	clusters = [[random.random()*(ranges[i][1]-ranges[i][0])+ranges[i][0]
-		for i in range(len(rows[0]))] for j in range(k)]
+		for i in range(len(rows[i]))] for j in range(k)]
 	
 	lastmatches = None
 	for t in range(100):

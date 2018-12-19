@@ -1,0 +1,134 @@
+2018-12-19 10:22:45,661 ERROR: Exception on /group/TEST [GET] [in d:\rfid\venv\lib\site-packages\flask\app.py:1761]
+Traceback (most recent call last):
+  File "d:\rfid\venv\lib\site-packages\flask\app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "d:\rfid\venv\lib\site-packages\flask\app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "d:\rfid\venv\lib\site-packages\flask_cors\extension.py", line 161, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "d:\rfid\venv\lib\site-packages\flask\app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "d:\rfid\venv\lib\site-packages\flask\_compat.py", line 35, in reraise
+    raise value
+  File "d:\rfid\venv\lib\site-packages\flask\app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "d:\rfid\venv\lib\site-packages\flask\app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "D:\rfid\rfid-signin-python\app\routes.py", line 240, in group
+    result = kcluster(parent)
+  File "D:\rfid\rfid-signin-python\app\algorithms\kmean.py", line 23, in kcluster
+    for i in range(len(rows[i]))]
+UnboundLocalError: local variable 'i' referenced before assignment
+2018-12-19 10:23:53,374 ERROR: Exception on /group/TEST [GET] [in d:\rfid\venv\lib\site-packages\flask\app.py:1761]
+Traceback (most recent call last):
+  File "d:\rfid\venv\lib\site-packages\flask\app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "d:\rfid\venv\lib\site-packages\flask\app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "d:\rfid\venv\lib\site-packages\flask_cors\extension.py", line 161, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "d:\rfid\venv\lib\site-packages\flask\app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "d:\rfid\venv\lib\site-packages\flask\_compat.py", line 35, in reraise
+    raise value
+  File "d:\rfid\venv\lib\site-packages\flask\app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "d:\rfid\venv\lib\site-packages\flask\app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "D:\rfid\rfid-signin-python\app\routes.py", line 240, in group
+    result = kcluster(parent)
+  File "D:\rfid\rfid-signin-python\app\algorithms\kmean.py", line 23, in kcluster
+    for row in rows]
+UnboundLocalError: local variable 'i' referenced before assignment
+2018-12-19 10:24:04,288 INFO: Serialshow startup [in D:\rfid\rfid-signin-python\app\__init__.py:36]
+2018-12-19 10:24:10,134 ERROR: Exception on /group/TEST [GET] [in d:\rfid\venv\lib\site-packages\flask\app.py:1761]
+Traceback (most recent call last):
+  File "d:\rfid\venv\lib\site-packages\flask\app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "d:\rfid\venv\lib\site-packages\flask\app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "d:\rfid\venv\lib\site-packages\flask_cors\extension.py", line 161, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "d:\rfid\venv\lib\site-packages\flask\app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "d:\rfid\venv\lib\site-packages\flask\_compat.py", line 35, in reraise
+    raise value
+  File "d:\rfid\venv\lib\site-packages\flask\app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "d:\rfid\venv\lib\site-packages\flask\app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "D:\rfid\rfid-signin-python\app\routes.py", line 240, in group
+    result = kcluster(parent)
+  File "D:\rfid\rfid-signin-python\app\algorithms\kmean.py", line 23, in kcluster
+    for row in rows]
+  File "D:\rfid\rfid-signin-python\app\algorithms\kmean.py", line 23, in <listcomp>
+    for row in rows]
+  File "D:\rfid\rfid-signin-python\app\algorithms\kmean.py", line 22, in <listcomp>
+    ranges = [(min([row[i] for row in rows]), max([row[i] for row in rows]))
+NameError: free variable 'i' referenced before assignment in enclosing scope
+2018-12-19 14:42:18,346 INFO: Serialshow startup [in D:\rfid\rfid-signin-python\app\__init__.py:36]
+2018-12-19 14:42:31,767 INFO: Serialshow startup [in D:\rfid\rfid-signin-python\app\__init__.py:36]
+2018-12-19 14:42:40,862 ERROR: Exception on /group/TEST [GET] [in d:\rfid\venv\lib\site-packages\flask\app.py:1761]
+Traceback (most recent call last):
+  File "d:\rfid\venv\lib\site-packages\flask\app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "d:\rfid\venv\lib\site-packages\flask\app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "d:\rfid\venv\lib\site-packages\flask_cors\extension.py", line 161, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "d:\rfid\venv\lib\site-packages\flask\app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "d:\rfid\venv\lib\site-packages\flask\_compat.py", line 35, in reraise
+    raise value
+  File "d:\rfid\venv\lib\site-packages\flask\app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "d:\rfid\venv\lib\site-packages\flask\app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "D:\rfid\rfid-signin-python\app\routes.py", line 240, in group
+    result = kcluster(parent)
+  File "D:\rfid\rfid-signin-python\app\algorithms\kmean.py", line 23, in kcluster
+    for i in range(len(rows[i]))]
+UnboundLocalError: local variable 'i' referenced before assignment
+2018-12-19 14:49:06,879 ERROR: Exception on /group/TEST [GET] [in d:\rfid\venv\lib\site-packages\flask\app.py:1761]
+Traceback (most recent call last):
+  File "d:\rfid\venv\lib\site-packages\flask\app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "d:\rfid\venv\lib\site-packages\flask\app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "d:\rfid\venv\lib\site-packages\flask_cors\extension.py", line 161, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "d:\rfid\venv\lib\site-packages\flask\app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "d:\rfid\venv\lib\site-packages\flask\_compat.py", line 35, in reraise
+    raise value
+  File "d:\rfid\venv\lib\site-packages\flask\app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "d:\rfid\venv\lib\site-packages\flask\app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "D:\rfid\rfid-signin-python\app\routes.py", line 240, in group
+    result = kcluster(parent)
+  File "D:\rfid\rfid-signin-python\app\algorithms\kmean.py", line 23, in kcluster
+    print(maxlen)
+UnboundLocalError: local variable 'i' referenced before assignment
+2018-12-19 14:49:59,969 ERROR: Exception on /group/TEST [GET] [in d:\rfid\venv\lib\site-packages\flask\app.py:1761]
+Traceback (most recent call last):
+  File "d:\rfid\venv\lib\site-packages\flask\app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "d:\rfid\venv\lib\site-packages\flask\app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "d:\rfid\venv\lib\site-packages\flask_cors\extension.py", line 161, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "d:\rfid\venv\lib\site-packages\flask\app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "d:\rfid\venv\lib\site-packages\flask\_compat.py", line 35, in reraise
+    raise value
+  File "d:\rfid\venv\lib\site-packages\flask\app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "d:\rfid\venv\lib\site-packages\flask\app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "D:\rfid\rfid-signin-python\app\routes.py", line 240, in group
+    result = kcluster(parent)
+  File "D:\rfid\rfid-signin-python\app\algorithms\kmean.py", line 23, in kcluster
+    print(maxlen)
+UnboundLocalError: local variable 'i' referenced before assignment
+2018-12-19 14:50:08,292 INFO: Serialshow startup [in D:\rfid\rfid-signin-python\app\__init__.py:36]

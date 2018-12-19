@@ -7,8 +7,6 @@ from app.models import Class, Student, Timetable
 from app.algorithms.kmean import kcluster
 from werkzeug.urls import url_parse
 from flask import request, Response
-from matplotlib.backends.backend_agg import FigureCanvasAgg as FigureCanvas
-from matplotlib.figure import Figure
 import redis, io, base64
 
 r = redis.StrictRedis(host='localhost', port=6379, db=0)
@@ -114,11 +112,7 @@ def get_class(class_name):
 	for student in students:
 		curr_log_info = Timetable.query.filter_by(time_class_id=class_.class_id).filter_by(
 				time_student_id = student.student_id
-			).filter(
-				Timetable.time_time > today_format
-			).filter(
-				Timetable.time_time < today_format + timedelta(hours=24)
-		).first()
+			).filter(Timetable.time_time.between(today_format, today_format + timedelta(hours=24))).first()
 		if curr_log_info is None:
 			active = False
 		else:
@@ -186,6 +180,7 @@ def signin():
 	rfid_id = decode(secret, fake_id)[2:-1]
 	for class_ in reversed(classes):
 		curr_class = Class.query.filter_by(class_id=class_.decode('utf-8')).first_or_404()
+		print(curr_class)
 		students = curr_class.get_student().all()
 		for student in students:
 			if student.rfid_id == rfid_id:
