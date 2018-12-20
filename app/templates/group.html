@@ -13,11 +13,13 @@
   <div class="card-columns mb-3" >
   	{% for group in result %}
   		{% if group|length > 5 %}
-  			<div class="card bg-warning">
+  			<div class="card bg-secondary">
   		{% elif group|length == 2 %}
   			<div class="card bg-danger">
+  		{% elif group|length == 0 %}
+			<div class="card bg-warning"> <li class="list-group-item">虚位以待</li>
   		{% else %}
-  			<div class="card bg-primary">
+			<div class="card bg-primary">
   		{% endif %}
   			<ul class="list-group list-group-flush">
   				{% for i in group %}

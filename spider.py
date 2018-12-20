@@ -31,6 +31,8 @@ while True:
 		print(data)
 		enc = encode(secret, str(data))
 		payload = {'rfid_id': enc, 'secret': secret}
+		url = 'https://flask-serialshow.herokuapp.com/signin' + '?rfid_id=' + enc + '&secret=' + secret
+		print(url)
 		test = requests.get('https://flask-serialshow.herokuapp.com/signin', params=payload)
 		print(test.text)
 		pusher_client.trigger('message', 'send', {'name': test.text})
