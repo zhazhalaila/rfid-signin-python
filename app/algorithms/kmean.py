@@ -53,7 +53,6 @@ def kcluster(rows, distance=person, k=10):
 	'''
 	lastmatches = None
 	for t in range(100):
-		print('Iteration %d' % t)
 		bestmatches = [[] for i in range(k)]
 		for j in range(len(rows)):
 			row = rows[j]
