@@ -25,8 +25,11 @@ def kcluster(rows, distance=person, k=10):
 	'''
 	for i in range(len(rows)):
 		if len(rows[i]) != maxlen:
-			for j in range(maxlen-1):
-				rows[i].append(0.001)
+			for j in range(maxlen-len(rows[i])):
+				rows[i].append(1.0)
+		if rows[i] is None:
+			for j in range(maxlen):
+				rows[i].append(1.0)
 	'''
 	Maybe a MxM matrix like this.
 	[[0, 1, 2, 3],
