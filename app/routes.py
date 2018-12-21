@@ -40,6 +40,15 @@ def decode(key, enc):
 		dec.append(dec_c)
 	return "".join(dec)
 
+def record(class_id, student_id, today_format):
+	'''
+	This record function is to check person sign in or not one day.
+		Current day is today_format, current day range is [today_format, today_format + timedelta(hours=24))]
+	'''
+	return Timetable.query.filter_by(time_class_id=class_id).filter_by(
+				time_student_id = student_id
+			).filter(Timetable.time_time.between(today_format, today_format + timedelta(hours=24))).first()
+	
 @app.before_request
 def before_request():
 	'''
@@ -110,9 +119,7 @@ def get_class(class_name):
 	today_str = datetime.now().strftime('%Y-%m-%d')
 	today_format = datetime.strptime(today_str, "%Y-%m-%d")
 	for student in students:
-		curr_log_info = Timetable.query.filter_by(time_class_id=class_.class_id).filter_by(
-				time_student_id = student.student_id
-			).filter(Timetable.time_time.between(today_format, today_format + timedelta(hours=24))).first()
+		curr_log_info = record(class_.class_id, student.student_id, today_format)
 		if curr_log_info is None:
 			active = False
 		else:
@@ -129,15 +136,7 @@ def post_result(class_name):
 	today_str = datetime.now().strftime('%Y-%m-%d')
 	today_format = datetime.strptime(today_str, "%Y-%m-%d")
 	for student in students:
-
-		curr_log_info = Timetable.query.filter_by(time_class_id=class_.class_id).filter_by(
-				time_student_id = student.student_id
-			).filter(
-				Timetable.time_time > today_format
-			).filter(
-				Timetable.time_time < today_format + timedelta(hours=24)
-		).first()
-
+		curr_log_info = record(class_.class_id, student.student_id, today_format)
 		if curr_log_info is None:
 
 			write_log_info = Timetable(time_class_name=class_.class_name,
