@@ -136,4 +136,4 @@ python fakedata.py
 没有什么要求，只要能跑就行了，可以增加一些丰富的功能
 
 ### License
-[MIT](https://opensource.org/licenses/MIT)
+MIT
