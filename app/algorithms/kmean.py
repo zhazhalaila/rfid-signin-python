@@ -20,7 +20,8 @@ def kcluster(rows, distance=person, k=10):
 	maxlen = max([len(row) for row in rows])
 	'''
 	This for loop just filling some not null value in rows.
-	For example maybe one or two or more person not sign one day, filling it with value 0.001.
+	For example maybe one or two or more person not sign one day, filling it with value 0.1.
+	We shouldn't fill value which is too small, so 1.0 or 0.x is better.
 	So we will get a MxM matrix.
 	'''
 	for i in range(len(rows)):
