@@ -1,6 +1,10 @@
 ## Rfid-signin-python
 RFID+Flask+Vue+Redis构造一个签到系统
 
+项目已部署在Heroku上
+
+[演示地址](https://flask-serialshow.herokuapp.com/index)
+
 [演示视频](https://www.bilibili.com/video/av34612101)
 
 测试账号名称: TEST 密码: password
