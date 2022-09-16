@@ -18,7 +18,7 @@ idna==2.7
 itsdangerous==0.24
 Jinja2==2.10
 kombu==3.0.37
-Mako==1.0.7
+Mako==1.2.2
 MarkupSafe==1.0
 ndg-httpsclient==0.5.1
 pusher==2.0.1
